@@ -14,6 +14,17 @@
 		0414802527D2CFC200CA9FCC /* moodle.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0414802327D2CFC200CA9FCC /* moodle.xcdatamodeld */; };
 		0414802727D2CFC300CA9FCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0414802627D2CFC300CA9FCC /* Assets.xcassets */; };
 		0414802A27D2CFC300CA9FCC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0414802827D2CFC300CA9FCC /* LaunchScreen.storyboard */; };
+		159CD0D927D2DA9A00DCEC19 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 159CD0D827D2DA9A00DCEC19 /* FirebaseAuth */; };
+		159CD0DB27D2DA9A00DCEC19 /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 159CD0DA27D2DA9A00DCEC19 /* FirebaseAuthCombine-Community */; };
+		159CD0DD27D2DA9A00DCEC19 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 159CD0DC27D2DA9A00DCEC19 /* FirebaseDatabase */; };
+		159CD0DF27D2DA9A00DCEC19 /* FirebaseDatabaseSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 159CD0DE27D2DA9A00DCEC19 /* FirebaseDatabaseSwift-Beta */; };
+		159CD0E127D2DA9A00DCEC19 /* FirebaseDynamicLinks in Frameworks */ = {isa = PBXBuildFile; productRef = 159CD0E027D2DA9A00DCEC19 /* FirebaseDynamicLinks */; };
+		159CD0E327D2DA9A00DCEC19 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 159CD0E227D2DA9A00DCEC19 /* FirebaseFirestore */; };
+		159CD0E527D2DA9A00DCEC19 /* FirebaseFirestoreSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 159CD0E427D2DA9A00DCEC19 /* FirebaseFirestoreSwift-Beta */; };
+		159CD0E727D2DA9A00DCEC19 /* FirebaseFunctionsSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 159CD0E627D2DA9A00DCEC19 /* FirebaseFunctionsSwift-Beta */; };
+		159CD0E927D2DA9A00DCEC19 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 159CD0E827D2DA9A00DCEC19 /* FirebaseMessaging */; };
+		159CD0EB27D2DA9A00DCEC19 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 159CD0EA27D2DA9A00DCEC19 /* FirebaseStorage */; };
+		159CD0ED27D2DA9A00DCEC19 /* FirebaseStorageSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 159CD0EC27D2DA9A00DCEC19 /* FirebaseStorageSwift-Beta */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +44,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				159CD0E927D2DA9A00DCEC19 /* FirebaseMessaging in Frameworks */,
+				159CD0DD27D2DA9A00DCEC19 /* FirebaseDatabase in Frameworks */,
+				159CD0D927D2DA9A00DCEC19 /* FirebaseAuth in Frameworks */,
+				159CD0EB27D2DA9A00DCEC19 /* FirebaseStorage in Frameworks */,
+				159CD0E527D2DA9A00DCEC19 /* FirebaseFirestoreSwift-Beta in Frameworks */,
+				159CD0E727D2DA9A00DCEC19 /* FirebaseFunctionsSwift-Beta in Frameworks */,
+				159CD0DF27D2DA9A00DCEC19 /* FirebaseDatabaseSwift-Beta in Frameworks */,
+				159CD0DB27D2DA9A00DCEC19 /* FirebaseAuthCombine-Community in Frameworks */,
+				159CD0E127D2DA9A00DCEC19 /* FirebaseDynamicLinks in Frameworks */,
+				159CD0ED27D2DA9A00DCEC19 /* FirebaseStorageSwift-Beta in Frameworks */,
+				159CD0E327D2DA9A00DCEC19 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +108,19 @@
 			dependencies = (
 			);
 			name = moodle;
+			packageProductDependencies = (
+				159CD0D827D2DA9A00DCEC19 /* FirebaseAuth */,
+				159CD0DA27D2DA9A00DCEC19 /* FirebaseAuthCombine-Community */,
+				159CD0DC27D2DA9A00DCEC19 /* FirebaseDatabase */,
+				159CD0DE27D2DA9A00DCEC19 /* FirebaseDatabaseSwift-Beta */,
+				159CD0E027D2DA9A00DCEC19 /* FirebaseDynamicLinks */,
+				159CD0E227D2DA9A00DCEC19 /* FirebaseFirestore */,
+				159CD0E427D2DA9A00DCEC19 /* FirebaseFirestoreSwift-Beta */,
+				159CD0E627D2DA9A00DCEC19 /* FirebaseFunctionsSwift-Beta */,
+				159CD0E827D2DA9A00DCEC19 /* FirebaseMessaging */,
+				159CD0EA27D2DA9A00DCEC19 /* FirebaseStorage */,
+				159CD0EC27D2DA9A00DCEC19 /* FirebaseStorageSwift-Beta */,
+			);
 			productName = moodle;
 			productReference = 0414801727D2CFC200CA9FCC /* moodle.app */;
 			productType = "com.apple.product-type.application";
@@ -114,6 +149,9 @@
 				Base,
 			);
 			mainGroup = 0414800E27D2CFC100CA9FCC;
+			packageReferences = (
+				159CD0D727D2DA9A00DCEC19 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 0414801827D2CFC200CA9FCC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -362,6 +400,75 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		159CD0D727D2DA9A00DCEC19 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		159CD0D827D2DA9A00DCEC19 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 159CD0D727D2DA9A00DCEC19 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		159CD0DA27D2DA9A00DCEC19 /* FirebaseAuthCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 159CD0D727D2DA9A00DCEC19 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseAuthCombine-Community";
+		};
+		159CD0DC27D2DA9A00DCEC19 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 159CD0D727D2DA9A00DCEC19 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		159CD0DE27D2DA9A00DCEC19 /* FirebaseDatabaseSwift-Beta */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 159CD0D727D2DA9A00DCEC19 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseDatabaseSwift-Beta";
+		};
+		159CD0E027D2DA9A00DCEC19 /* FirebaseDynamicLinks */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 159CD0D727D2DA9A00DCEC19 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDynamicLinks;
+		};
+		159CD0E227D2DA9A00DCEC19 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 159CD0D727D2DA9A00DCEC19 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		159CD0E427D2DA9A00DCEC19 /* FirebaseFirestoreSwift-Beta */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 159CD0D727D2DA9A00DCEC19 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseFirestoreSwift-Beta";
+		};
+		159CD0E627D2DA9A00DCEC19 /* FirebaseFunctionsSwift-Beta */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 159CD0D727D2DA9A00DCEC19 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseFunctionsSwift-Beta";
+		};
+		159CD0E827D2DA9A00DCEC19 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 159CD0D727D2DA9A00DCEC19 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+		159CD0EA27D2DA9A00DCEC19 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 159CD0D727D2DA9A00DCEC19 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+		159CD0EC27D2DA9A00DCEC19 /* FirebaseStorageSwift-Beta */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 159CD0D727D2DA9A00DCEC19 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseStorageSwift-Beta";
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		0414802327D2CFC200CA9FCC /* moodle.xcdatamodeld */ = {
