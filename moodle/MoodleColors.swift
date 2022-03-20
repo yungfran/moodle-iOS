@@ -9,28 +9,44 @@ import UIKit
 
 class MoodleColors {
     
-    var rating1: UIColor
-    var rating2: UIColor
-    var rating3: UIColor
-    var rating4: UIColor
-    var rating5: UIColor
-    var rating6: UIColor
-    var rating7: UIColor
-    var rating8: UIColor
-    var rating9: UIColor
-    var rating10: UIColor
+    class var rating1: UIColor {
+        return UIColorFromRGB(0xC97474)
+    }
     
-    init(){
-        rating1 = UIColorFromRGB(0xC97474)
-        rating2 = UIColorFromRGB(0xFF8585)
-        rating3 = UIColorFromRGB(0xFFB37B)
-        rating4 = UIColorFromRGB(0xFFDA7B)
-        rating5 = UIColorFromRGB(0xFCFF7E)
-        rating6 = UIColorFromRGB(0xB28DFF)
-        rating7 = UIColorFromRGB(0x7CB1FF)
-        rating8 = UIColorFromRGB(0x80FFF7)
-        rating9 = UIColorFromRGB(0xB9FF83)
-        rating10 = UIColorFromRGB(0x81FF8D)
+    class var rating2: UIColor {
+        return UIColorFromRGB(0xFF8585)
+    }
+    
+    class var rating3: UIColor {
+        return UIColorFromRGB(0xFFB37B)
+    }
+    
+    class var rating4: UIColor {
+        return UIColorFromRGB(0xFFDA7B)
+    }
+    
+    class var rating5: UIColor {
+        return UIColorFromRGB(0xFCFF7E)
+    }
+    
+    class var rating6: UIColor {
+        return UIColorFromRGB(0xB28DFF)
+    }
+    
+    class var rating7: UIColor {
+        return UIColorFromRGB(0x7CB1FF)
+    }
+    
+    class var rating8: UIColor {
+        return UIColorFromRGB(0x80FFF7)
+    }
+    
+    class var rating9: UIColor {
+        return UIColorFromRGB(0xB9FF83)
+    }
+    
+    class var rating10: UIColor {
+        return UIColorFromRGB(0x81FF8D)
     }
 }
 
