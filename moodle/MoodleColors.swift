@@ -48,6 +48,9 @@ class MoodleColors {
     class var rating10: UIColor {
         return UIColorFromRGB(0x81FF8D)
     }
+    
+    static var moodleColorsList = [rating1, rating2, rating3, rating4, rating5, rating6, rating7, rating8, rating9, rating10]
+
 }
 
 // creates a UIColor from RGB values
