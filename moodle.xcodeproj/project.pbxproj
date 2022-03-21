@@ -29,6 +29,11 @@
 		159CD0E927D2DA9A00DCEC19 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 159CD0E827D2DA9A00DCEC19 /* FirebaseMessaging */; };
 		159CD0EB27D2DA9A00DCEC19 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 159CD0EA27D2DA9A00DCEC19 /* FirebaseStorage */; };
 		159CD0ED27D2DA9A00DCEC19 /* FirebaseStorageSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 159CD0EC27D2DA9A00DCEC19 /* FirebaseStorageSwift-Beta */; };
+		40110F2427E59AB100BFA8CD /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40110F2327E59AB100BFA8CD /* Calendar.storyboard */; };
+		40481B2A27DAC5C3003092D5 /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40481B2927DAC5C3003092D5 /* CalendarVC.swift */; };
+		4065B41A27DDBA00002C4639 /* ExtendedDayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065B41927DDBA00002C4639 /* ExtendedDayVC.swift */; };
+		40B3B4CF27E6CABC0014BC3A /* MoodleColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B3B4CE27E6CABC0014BC3A /* MoodleColors.swift */; };
+		6B2A049023E3B885F727141D /* Pods_moodle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD61410CB263936E51E72BDC /* Pods_moodle.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +48,13 @@
 		0414802B27D2CFC300CA9FCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		042CCA9927E4C39700C24427 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		04E1021A27DAED22004E2F8F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3753986F372461410E353D16 /* Pods-moodle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-moodle.release.xcconfig"; path = "Target Support Files/Pods-moodle/Pods-moodle.release.xcconfig"; sourceTree = "<group>"; };
+		40110F2327E59AB100BFA8CD /* Calendar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
+		40481B2927DAC5C3003092D5 /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
+		4065B41927DDBA00002C4639 /* ExtendedDayVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtendedDayVC.swift; sourceTree = "<group>"; };
+		40B3B4CE27E6CABC0014BC3A /* MoodleColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodleColors.swift; sourceTree = "<group>"; };
+		A4FE10F3E548EB60130EAEF4 /* Pods-moodle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-moodle.debug.xcconfig"; path = "Target Support Files/Pods-moodle/Pods-moodle.debug.xcconfig"; sourceTree = "<group>"; };
+		AD61410CB263936E51E72BDC /* Pods_moodle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_moodle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1588611627E7D922005E1AD6 /* EnterDataVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterDataVC.swift; sourceTree = "<group>"; };
 		1588611C27E7D99E005E1AD6 /* Enter Today's Data.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Enter Today's Data.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -63,6 +75,7 @@
 				159CD0E127D2DA9A00DCEC19 /* FirebaseDynamicLinks in Frameworks */,
 				159CD0ED27D2DA9A00DCEC19 /* FirebaseStorageSwift-Beta in Frameworks */,
 				159CD0E327D2DA9A00DCEC19 /* FirebaseFirestore in Frameworks */,
+				6B2A049023E3B885F727141D /* Pods_moodle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +87,8 @@
 			children = (
 				0414801927D2CFC200CA9FCC /* moodle */,
 				0414801827D2CFC200CA9FCC /* Products */,
+				34CDE25FA59ACA667DEFB689 /* Pods */,
+				E4B282D45FB1F147BB453BB7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -93,7 +108,11 @@
 				0414801A27D2CFC200CA9FCC /* AppDelegate.swift */,
 				0414801C27D2CFC200CA9FCC /* SceneDelegate.swift */,
 				0414801E27D2CFC200CA9FCC /* ViewController.swift */,
+				40B3B4CE27E6CABC0014BC3A /* MoodleColors.swift */,
+				40481B2927DAC5C3003092D5 /* CalendarVC.swift */,
+				4065B41927DDBA00002C4639 /* ExtendedDayVC.swift */,
 				0414802027D2CFC200CA9FCC /* Main.storyboard */,
+				40110F2327E59AB100BFA8CD /* Calendar.storyboard */,
 				0414802627D2CFC300CA9FCC /* Assets.xcassets */,
 				0414802827D2CFC300CA9FCC /* LaunchScreen.storyboard */,
 				0414802B27D2CFC300CA9FCC /* Info.plist */,
@@ -104,6 +123,23 @@
 			path = moodle;
 			sourceTree = "<group>";
 		};
+		34CDE25FA59ACA667DEFB689 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A4FE10F3E548EB60130EAEF4 /* Pods-moodle.debug.xcconfig */,
+				3753986F372461410E353D16 /* Pods-moodle.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		E4B282D45FB1F147BB453BB7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AD61410CB263936E51E72BDC /* Pods_moodle.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -111,9 +147,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0414802E27D2CFC300CA9FCC /* Build configuration list for PBXNativeTarget "moodle" */;
 			buildPhases = (
+				2E58EF799D73EB1DD252537D /* [CP] Check Pods Manifest.lock */,
 				0414801327D2CFC100CA9FCC /* Sources */,
 				0414801427D2CFC100CA9FCC /* Frameworks */,
 				0414801527D2CFC100CA9FCC /* Resources */,
+				838D15F0FA82B698BB7DB6E5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -181,6 +219,7 @@
 				0414802A27D2CFC300CA9FCC /* LaunchScreen.storyboard in Resources */,
 				04E1021B27DAED22004E2F8F /* GoogleService-Info.plist in Resources */,
 				0414802727D2CFC300CA9FCC /* Assets.xcassets in Resources */,
+				40110F2427E59AB100BFA8CD /* Calendar.storyboard in Resources */,
 				1588611D27E7D99E005E1AD6 /* Enter Today's Data.storyboard in Resources */,
 				0414802227D2CFC200CA9FCC /* Main.storyboard in Resources */,
 			);
@@ -188,17 +227,62 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2E58EF799D73EB1DD252537D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-moodle-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		838D15F0FA82B698BB7DB6E5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-moodle/Pods-moodle-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-moodle/Pods-moodle-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-moodle/Pods-moodle-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0414801327D2CFC100CA9FCC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4065B41A27DDBA00002C4639 /* ExtendedDayVC.swift in Sources */,
+				40481B2A27DAC5C3003092D5 /* CalendarVC.swift in Sources */,
 				0414801F27D2CFC200CA9FCC /* ViewController.swift in Sources */,
 				1588611727E7D922005E1AD6 /* EnterDataVC.swift in Sources */,
 				042CCA9A27E4C39700C24427 /* Data.swift in Sources */,
 				0414801B27D2CFC200CA9FCC /* AppDelegate.swift in Sources */,
 				0414801D27D2CFC200CA9FCC /* SceneDelegate.swift in Sources */,
 				0414802527D2CFC200CA9FCC /* moodle.xcdatamodeld in Sources */,
+				40B3B4CF27E6CABC0014BC3A /* MoodleColors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,11 +426,13 @@
 		};
 		0414802F27D2CFC300CA9FCC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A4FE10F3E548EB60130EAEF4 /* Pods-moodle.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5B5JDB692B;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = moodle/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -369,11 +455,13 @@
 		};
 		0414803027D2CFC300CA9FCC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3753986F372461410E353D16 /* Pods-moodle.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5B5JDB692B;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = moodle/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
