@@ -15,6 +15,10 @@
 		0414802727D2CFC300CA9FCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0414802627D2CFC300CA9FCC /* Assets.xcassets */; };
 		0414802A27D2CFC300CA9FCC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0414802827D2CFC300CA9FCC /* LaunchScreen.storyboard */; };
 		042CCA9A27E4C39700C24427 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042CCA9927E4C39700C24427 /* Data.swift */; };
+		04651F1427E583A500360140 /* SettingsVisualizations.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04651F1127E583A400360140 /* SettingsVisualizations.storyboard */; };
+		04651F1527E583A500360140 /* VisualizationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04651F1227E583A400360140 /* VisualizationsViewController.swift */; };
+		04651F1627E583A500360140 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04651F1327E583A500360140 /* SettingsViewController.swift */; };
+		04651F1927E5847900360140 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 04651F1827E5847900360140 /* Charts */; };
 		04E1021B27DAED22004E2F8F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04E1021A27DAED22004E2F8F /* GoogleService-Info.plist */; };
 		1588611727E7D922005E1AD6 /* EnterDataVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1588611627E7D922005E1AD6 /* EnterDataVC.swift */; };
 		1588611D27E7D99E005E1AD6 /* Enter Today's Data.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1588611C27E7D99E005E1AD6 /* Enter Today's Data.storyboard */; };
@@ -47,6 +51,9 @@
 		0414802927D2CFC300CA9FCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0414802B27D2CFC300CA9FCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		042CCA9927E4C39700C24427 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		04651F1127E583A400360140 /* SettingsVisualizations.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SettingsVisualizations.storyboard; sourceTree = "<group>"; };
+		04651F1227E583A400360140 /* VisualizationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisualizationsViewController.swift; sourceTree = "<group>"; };
+		04651F1327E583A500360140 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		04E1021A27DAED22004E2F8F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3753986F372461410E353D16 /* Pods-moodle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-moodle.release.xcconfig"; path = "Target Support Files/Pods-moodle/Pods-moodle.release.xcconfig"; sourceTree = "<group>"; };
 		40110F2327E59AB100BFA8CD /* Calendar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
@@ -71,6 +78,7 @@
 				159CD0E527D2DA9A00DCEC19 /* FirebaseFirestoreSwift-Beta in Frameworks */,
 				159CD0E727D2DA9A00DCEC19 /* FirebaseFunctionsSwift-Beta in Frameworks */,
 				159CD0DF27D2DA9A00DCEC19 /* FirebaseDatabaseSwift-Beta in Frameworks */,
+				04651F1927E5847900360140 /* Charts in Frameworks */,
 				159CD0DB27D2DA9A00DCEC19 /* FirebaseAuthCombine-Community in Frameworks */,
 				159CD0E127D2DA9A00DCEC19 /* FirebaseDynamicLinks in Frameworks */,
 				159CD0ED27D2DA9A00DCEC19 /* FirebaseStorageSwift-Beta in Frameworks */,
@@ -114,6 +122,9 @@
 				0414802027D2CFC200CA9FCC /* Main.storyboard */,
 				40110F2327E59AB100BFA8CD /* Calendar.storyboard */,
 				0414802627D2CFC300CA9FCC /* Assets.xcassets */,
+				04651F1327E583A500360140 /* SettingsViewController.swift */,
+				04651F1127E583A400360140 /* SettingsVisualizations.storyboard */,
+				04651F1227E583A400360140 /* VisualizationsViewController.swift */,
 				0414802827D2CFC300CA9FCC /* LaunchScreen.storyboard */,
 				0414802B27D2CFC300CA9FCC /* Info.plist */,
 				0414802327D2CFC200CA9FCC /* moodle.xcdatamodeld */,
@@ -170,6 +181,7 @@
 				159CD0E827D2DA9A00DCEC19 /* FirebaseMessaging */,
 				159CD0EA27D2DA9A00DCEC19 /* FirebaseStorage */,
 				159CD0EC27D2DA9A00DCEC19 /* FirebaseStorageSwift-Beta */,
+				04651F1827E5847900360140 /* Charts */,
 			);
 			productName = moodle;
 			productReference = 0414801727D2CFC200CA9FCC /* moodle.app */;
@@ -201,6 +213,7 @@
 			mainGroup = 0414800E27D2CFC100CA9FCC;
 			packageReferences = (
 				159CD0D727D2DA9A00DCEC19 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				04651F1727E5847800360140 /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			productRefGroup = 0414801827D2CFC200CA9FCC /* Products */;
 			projectDirPath = "";
@@ -218,6 +231,7 @@
 			files = (
 				0414802A27D2CFC300CA9FCC /* LaunchScreen.storyboard in Resources */,
 				04E1021B27DAED22004E2F8F /* GoogleService-Info.plist in Resources */,
+				04651F1427E583A500360140 /* SettingsVisualizations.storyboard in Resources */,
 				0414802727D2CFC300CA9FCC /* Assets.xcassets in Resources */,
 				40110F2427E59AB100BFA8CD /* Calendar.storyboard in Resources */,
 				1588611D27E7D99E005E1AD6 /* Enter Today's Data.storyboard in Resources */,
@@ -279,9 +293,11 @@
 				0414801F27D2CFC200CA9FCC /* ViewController.swift in Sources */,
 				1588611727E7D922005E1AD6 /* EnterDataVC.swift in Sources */,
 				042CCA9A27E4C39700C24427 /* Data.swift in Sources */,
+				04651F1627E583A500360140 /* SettingsViewController.swift in Sources */,
 				0414801B27D2CFC200CA9FCC /* AppDelegate.swift in Sources */,
 				0414801D27D2CFC200CA9FCC /* SceneDelegate.swift in Sources */,
 				0414802527D2CFC200CA9FCC /* moodle.xcdatamodeld in Sources */,
+				04651F1527E583A500360140 /* VisualizationsViewController.swift in Sources */,
 				40B3B4CF27E6CABC0014BC3A /* MoodleColors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -506,6 +522,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		04651F1727E5847800360140 /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/Charts";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 		159CD0D727D2DA9A00DCEC19 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -517,6 +541,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		04651F1827E5847900360140 /* Charts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 04651F1727E5847800360140 /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = Charts;
+		};
 		159CD0D827D2DA9A00DCEC19 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 159CD0D727D2DA9A00DCEC19 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
