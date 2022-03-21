@@ -16,6 +16,8 @@
 		0414802A27D2CFC300CA9FCC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0414802827D2CFC300CA9FCC /* LaunchScreen.storyboard */; };
 		042CCA9A27E4C39700C24427 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042CCA9927E4C39700C24427 /* Data.swift */; };
 		04E1021B27DAED22004E2F8F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04E1021A27DAED22004E2F8F /* GoogleService-Info.plist */; };
+		1588611727E7D922005E1AD6 /* EnterDataVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1588611627E7D922005E1AD6 /* EnterDataVC.swift */; };
+		1588611D27E7D99E005E1AD6 /* Enter Today's Data.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1588611C27E7D99E005E1AD6 /* Enter Today's Data.storyboard */; };
 		159CD0D927D2DA9A00DCEC19 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 159CD0D827D2DA9A00DCEC19 /* FirebaseAuth */; };
 		159CD0DB27D2DA9A00DCEC19 /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 159CD0DA27D2DA9A00DCEC19 /* FirebaseAuthCombine-Community */; };
 		159CD0DD27D2DA9A00DCEC19 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 159CD0DC27D2DA9A00DCEC19 /* FirebaseDatabase */; };
@@ -41,6 +43,8 @@
 		0414802B27D2CFC300CA9FCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		042CCA9927E4C39700C24427 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		04E1021A27DAED22004E2F8F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1588611627E7D922005E1AD6 /* EnterDataVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterDataVC.swift; sourceTree = "<group>"; };
+		1588611C27E7D99E005E1AD6 /* Enter Today's Data.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Enter Today's Data.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +88,7 @@
 		0414801927D2CFC200CA9FCC /* moodle */ = {
 			isa = PBXGroup;
 			children = (
+				1588611C27E7D99E005E1AD6 /* Enter Today's Data.storyboard */,
 				04E1021A27DAED22004E2F8F /* GoogleService-Info.plist */,
 				0414801A27D2CFC200CA9FCC /* AppDelegate.swift */,
 				0414801C27D2CFC200CA9FCC /* SceneDelegate.swift */,
@@ -93,6 +98,7 @@
 				0414802827D2CFC300CA9FCC /* LaunchScreen.storyboard */,
 				0414802B27D2CFC300CA9FCC /* Info.plist */,
 				0414802327D2CFC200CA9FCC /* moodle.xcdatamodeld */,
+				1588611627E7D922005E1AD6 /* EnterDataVC.swift */,
 				042CCA9927E4C39700C24427 /* Data.swift */,
 			);
 			path = moodle;
@@ -175,6 +181,7 @@
 				0414802A27D2CFC300CA9FCC /* LaunchScreen.storyboard in Resources */,
 				04E1021B27DAED22004E2F8F /* GoogleService-Info.plist in Resources */,
 				0414802727D2CFC300CA9FCC /* Assets.xcassets in Resources */,
+				1588611D27E7D99E005E1AD6 /* Enter Today's Data.storyboard in Resources */,
 				0414802227D2CFC200CA9FCC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -187,6 +194,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0414801F27D2CFC200CA9FCC /* ViewController.swift in Sources */,
+				1588611727E7D922005E1AD6 /* EnterDataVC.swift in Sources */,
 				042CCA9A27E4C39700C24427 /* Data.swift in Sources */,
 				0414801B27D2CFC200CA9FCC /* AppDelegate.swift in Sources */,
 				0414801D27D2CFC200CA9FCC /* SceneDelegate.swift in Sources */,
