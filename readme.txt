@@ -8,8 +8,8 @@ Regina Chen (23%)
 Tony Chang (31%)
 - Defined Core Data model for how app will store each day’s Entry for users (moodle.xcdatamodel)
 - Created Core Data interface for storing, editing, retrieving entries, and a Mock class that utilizes the Entry interface to generate fake data for testing (Data.swift)
--Integrated all group member’s individual storyboards files and view controllers into Main.storyboard for functional app with functional navigation (different storyboard files from each member -> Main.storyboard)
-- Built out the not-yet-functional settings view controller and visualizations view controller, present functional visualizations that pull from CoreData (SettingsViewController.swift & VisualizationsViewController.swift)
+- Integrated all group member’s individual storyboards files and view controllers into Main.storyboard for functional app with functional navigation (different storyboard files from each member -> Main.storyboard)
+- Built out the not-yet-functional settings view controller and basic idea of visualizations view controller, present  basic visualizations that pull from CoreData (SettingsViewController.swift & VisualizationsViewController.swift)
 
 Jessica Ma (23%)
 - Login screen with connection to Firebase
