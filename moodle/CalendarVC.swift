@@ -29,12 +29,10 @@ class CalendarVC: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FS
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Do any additional setup after loading the view.
         calendar.delegate = self
         calendar.dataSource = self
         calendar.placeholderType = .none
-        // Do any additional setup after loading the view.
-       
-        
     }
     
     lazy var borderDefaultColors = ["2022/03/03": UIColor.red, today: UIColor.black]
@@ -89,6 +87,4 @@ class CalendarVC: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FS
             nextVC.selectedDate = calendar.selectedDate
         }
     }
-     
-    
 }

@@ -47,8 +47,6 @@ class VisualizationsViewController: UIViewController {
         generatePieChart()
     }
     
-    
-    
     func generateLineChart() {
         let raw = Data.retrieveData(username: "user")
         
@@ -65,7 +63,7 @@ class VisualizationsViewController: UIViewController {
         formatter.locale = Locale.current
         
         
-        var entries:[ChartDataEntry] = []
+        var entries: [ChartDataEntry] = []
         
         for entry in raw {
             let date = entry.date!
@@ -103,31 +101,38 @@ class VisualizationsViewController: UIViewController {
     func generatePieChart() {
         let raw = Data.retrieveData(username: "user")
         
-        var entries:[PieChartDataEntry] = []
+        var entries: [PieChartDataEntry] = []
         
-        var counter:[Int] = [Int](repeating: 0, count: 11)
+        var counter: [Int] = [Int](repeating: 0, count: 11)
         
         for entry in raw {
             counter[Int(entry.rating)] += 1
         }
         
-        for i in 1..<11 {
+        for i in 1...10 {
             let entry = PieChartDataEntry(value: Double(counter[i]), label: String(i))
             entries.append(entry)
         }
         
         let set = PieChartDataSet(entries)
-        set.colors = [UIColor.red, UIColor.blue, UIColor.green]
+        set.colors = MoodleColors.moodleColorsList
         set.label = nil
         let data = PieChartData(dataSet: set)
         
         pieChart.data = data
         pieChart.animate(xAxisDuration: 1.5)
+        pieChart.legend.enabled = false
     }
 
     @IBAction func refreshPressed(_ sender: Any) {
         generateLineChart()
         generatePieChart()
     }
-
+    
+    @IBAction func generateDataPressed(_ sender: Any) {
+        Mock.clearData()
+        Mock.generateData()
+        generateLineChart()
+        generatePieChart()
+    }
 }

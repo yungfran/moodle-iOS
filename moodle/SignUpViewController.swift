@@ -22,7 +22,7 @@ class SignUpViewController: UIViewController {
         Auth.auth().addStateDidChangeListener() {
             auth, user in
             if user != nil {
-                self.performSegue(withIdentifier: "finishedSignupSegue", sender: nil)
+                self.performSegue(withIdentifier: "successfulSignupSegue", sender: nil)
                 self.emailField.text = nil
                 self.passwordField.text = nil
             }

@@ -27,6 +27,4 @@ class ExtendedDayVC: UIViewController, FSCalendarDelegate, FSCalendarDataSource,
         dateLabel.text = formatter.string(from: selectedDate!)
         onDateLabel.text = "On \(formatter.string(from: selectedDate!)) you...."
     }
-    
-
 }

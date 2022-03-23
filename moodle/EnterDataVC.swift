@@ -8,14 +8,11 @@
 import Foundation
 import UIKit
 
-class EnterDataVC: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate{
+class EnterDataVC: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
-    @IBOutlet weak var QuestionButton: UIButton!
-    
+    @IBOutlet weak var questionButton: UIButton!
     @IBOutlet weak var userComments: UITextField!
-    
     @IBOutlet weak var ratingSlider: UISlider!
-    
     @IBOutlet weak var currentNum: UILabel!
     
     let expandedViewIdentifier = "ExpandedEntrySegue"
@@ -40,30 +37,28 @@ class EnterDataVC: UIViewController, UIImagePickerControllerDelegate & UINavigat
     }
     
     @IBAction func pressedSubmit(_ sender: Any) {
-        //let user = getUsername()
-        //let date = getDate()
-        let rating:Int = Int(round(ratingSlider.value))
+//        let user = getUsername()
+//        let date = getDate()
+        let rating: Int = Int(round(ratingSlider.value))
         let comments = userComments != nil ? userComments.text : ""
-        
         
 //        print("Rating: ", rating)
 //        print("Comments: ", comments!)
 //        print("Number of pictures: ", picturesToAdd.count)
-        //Data.storeEntry(username: <#T##String#>, date: <#T##Date#>, rating: rating, detail: comments, images:picturesToAdd)
-        //Segue to calendar view
+//        Data.storeEntry(username: <#T##String#>, date: <#T##Date#>, rating: rating, detail: comments, images:picturesToAdd)
+//        Segue to calendar view
     }
     
-    // Called After "Choose" is pressed after an image has been selected / captured
-    // Need to adjust info plst??
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+//     Called After "Choose" is pressed after an image has been selected / captured
+//     Need to adjust info plst??
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             picturesToAdd.append(pickedImage)
             self.dismiss(animated: true, completion: nil)
-            print("Image Selected (Size: ",pickedImage.size,"); photo select dismissed")
+            print("Image Selected (Size: ", pickedImage.size, "); photo select dismissed")
         }
     }
     
-
     @IBAction func attachPhoto(_ sender: Any) {
         let controller = UIAlertController(
             title: "Attach Photo",
@@ -90,25 +85,21 @@ class EnterDataVC: UIViewController, UIImagePickerControllerDelegate & UINavigat
             imagePicker.sourceType = UIImagePickerController.SourceType.camera
             imagePicker.allowsEditing = false
             self.present(imagePicker, animated: true, completion: nil)
-        }
-        else
-        {
+        } else {
             let alert  = UIAlertController(title: "Warning", message: "You don't have camera", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
-        
     }
     
     func uploadPhotoHandler() {
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.photoLibrary){
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.photoLibrary) {
             let imagePicker = UIImagePickerController()
             imagePicker.delegate = self
             imagePicker.allowsEditing = true
             imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
             self.present(imagePicker, animated: true, completion: nil)
-        }
-        else  {
+        } else {
             let alert  = UIAlertController(title: "Warning", message: "You don't have permission to access gallery.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)

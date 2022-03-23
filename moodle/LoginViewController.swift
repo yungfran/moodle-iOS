@@ -21,7 +21,7 @@ class LoginViewController: UIViewController {
         Auth.auth().addStateDidChangeListener() {
             auth, user in
             if user != nil {
-                self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                self.performSegue(withIdentifier: "successfulLoginSegue", sender: nil)
                 self.emailField.text = nil
                 self.passwordField.text = nil
             }

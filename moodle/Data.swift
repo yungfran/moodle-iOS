@@ -50,9 +50,9 @@ class Data {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         
-        let request:NSFetchRequest<Entry> = Entry.fetchRequest()
+        let request: NSFetchRequest<Entry> = Entry.fetchRequest()
         
-        var fetched:[Entry]? = nil
+        var fetched: [Entry]?
         
         let userPredicate = NSPredicate(format: "username = %@", username)
         request.predicate = userPredicate
@@ -74,9 +74,9 @@ class Data {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yy"
         var actualBeginning = dateFormatter.date(from: beginning)!
-        actualBeginning = calendar.startOfDay(for:actualBeginning)
+        actualBeginning = calendar.startOfDay(for: actualBeginning)
         var actualEnd = dateFormatter.date(from: end)!
-        actualEnd = calendar.startOfDay(for:actualEnd)
+        actualEnd = calendar.startOfDay(for: actualEnd)
         
         return retrieveData(username: username, beginning: actualBeginning, end: actualEnd)
     }
@@ -127,9 +127,9 @@ class Data {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         
-        let request:NSFetchRequest<Entry> = Entry.fetchRequest()
+        let request: NSFetchRequest<Entry> = Entry.fetchRequest()
         
-        var fetched:[Entry]? = nil
+        var fetched: [Entry]?
 
         let startPredicate = NSPredicate(format: "date >= %@", beginning as NSDate)
         let endPredicate = NSPredicate(format: "date < %@", end as NSDate)
@@ -196,7 +196,7 @@ class Mock {
         for date in range {
             let rating = Int.random(in: 1..<11)
             
-            var images:[UIImage] = []
+            var images: [UIImage] = []
             images.append(UIColor.red.image(CGSize(width: 200, height: 200)))
             images.append(UIColor.blue.image(CGSize(width: 200, height: 200)))
             

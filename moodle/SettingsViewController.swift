@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SettingsViewController: UIViewController {
     @IBOutlet weak var darkModeToggle: UISwitch!
@@ -13,25 +14,24 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
     
     @IBAction func darkModeToggleChanged(_ sender: Any) {
-        
+        // TODO
     }
     @IBAction func notificationsToggleChanged(_ sender: Any) {
-        
+        // TODO
     }
     
     @IBAction func signOutPressed(_ sender: Any) {
+        do {
+            try Auth.auth().signOut()
+            self.performSegue(withIdentifier: "backToLoginSegue", sender: nil)
+        } catch {
+            print("Sign out error")
+        }
     }
-    
-    @IBAction func generateDataPressed(_ sender: Any) {
-        Mock.clearData()
-        Mock.generateData()
-    }
-    
     
     /*
     // MARK: - Navigation
