@@ -17,7 +17,10 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
+        // dark mode:
+        // overrideUserInterfaceStyle = .dark
+        
         // Create a gradient layer.
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = view.bounds
