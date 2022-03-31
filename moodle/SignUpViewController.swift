@@ -14,9 +14,19 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var errorMessage: UILabel!
     @IBOutlet weak var confirmPasswordField: UITextField!
+    @IBOutlet var backgroundGradientView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Create a gradient layer.
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = view.bounds
+        gradientLayer.colors = [UIColor(named: "customGradient1")!.cgColor, UIColor(named: "customGradient2")!.cgColor]
+        gradientLayer.shouldRasterize = true
+        backgroundGradientView.layer.insertSublayer(gradientLayer, at: 0)
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0) // Top left corner.
+        gradientLayer.endPoint = CGPoint(x: 1, y: 1) // Bottom right corner.
 
         // Do any additional setup after loading the view.
         Auth.auth().addStateDidChangeListener() {

@@ -73,6 +73,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="3Ib-K4-aBb"/>
                     <connections>
+                        <outlet property="backgroundGradientView" destination="RJT-rB-SX7" id="D8m-8D-GXR"/>
                         <outlet property="emailField" destination="M2q-0m-DGL" id="Wjc-C0-QCf"/>
                         <outlet property="errorMessage" destination="1cG-9z-oc0" id="IqE-nI-LRm"/>
                         <outlet property="passwordField" destination="8Dt-we-uxs" id="vV8-n5-go2"/>
@@ -152,6 +153,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="5EA-go-t5m"/>
                     <connections>
+                        <outlet property="backgroundGradientView" destination="Dc4-jX-Z0J" id="Txo-xS-aBh"/>
                         <outlet property="confirmPasswordField" destination="ZNo-W5-wGL" id="JNm-pa-rc5"/>
                         <outlet property="emailField" destination="9Ke-Vu-jFB" id="oih-Z8-gfX"/>
                         <outlet property="errorMessage" destination="heM-aR-quK" id="rMl-fs-lJc"/>
