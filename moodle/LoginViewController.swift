@@ -8,27 +8,14 @@
 import UIKit
 import FirebaseAuth
 
-class LoginViewController: UIViewController {
+class LoginViewController: GradientViewController {
 
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var errorMessage: UILabel!
-    @IBOutlet var backgroundGradientView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // dark mode:
-        // overrideUserInterfaceStyle = .dark
-        
-        // Create a gradient layer.
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = view.bounds
-        gradientLayer.colors = [UIColor(named: "customGradient1")!.cgColor, UIColor(named: "customGradient2")!.cgColor]
-        gradientLayer.shouldRasterize = true
-        backgroundGradientView.layer.insertSublayer(gradientLayer, at: 0)
-        gradientLayer.startPoint = CGPoint(x: 0, y: 0) // Top left corner.
-        gradientLayer.endPoint = CGPoint(x: 1, y: 1) // Bottom right corner.
         
         Auth.auth().addStateDidChangeListener() {
             auth, user in
