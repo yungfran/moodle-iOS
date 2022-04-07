@@ -9,13 +9,17 @@ import UIKit
 
 class GradientViewController: UIViewController {
 
-    static var darkMode = false
+    //static var darkMode = false
     var gradientLayer = CAGradientLayer()
+    let darkMode = false
+    let darkModeKey = "darkMode"
+    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
-        // Create a gradient layer.
+        if defaults.object(forKey: darkModeKey) == nil {
+            defaults.set(darkMode, forKey: darkModeKey)
+        }
         gradientLayer.frame = view.bounds
         gradientLayer.colors = [UIColor(named: "customGradient1")!.cgColor, UIColor(named: "customGradient2")!.cgColor]
         gradientLayer.shouldRasterize = true
@@ -25,7 +29,8 @@ class GradientViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if GradientViewController.darkMode {
+        let darkModeStatus = defaults.bool(forKey: "darkMode")
+        if darkModeStatus {
             gradientLayer.removeFromSuperlayer()
             overrideUserInterfaceStyle = .dark
             // Create a gradient layer.
@@ -35,7 +40,7 @@ class GradientViewController: UIViewController {
             gradientLayer.shouldRasterize = true
             view.layer.insertSublayer(gradientLayer, at: 0)
 
-        } else if !GradientViewController.darkMode {
+        } else if !darkModeStatus {
             gradientLayer.removeFromSuperlayer()
             overrideUserInterfaceStyle = .light
             // Create a gradient layer.
@@ -46,11 +51,13 @@ class GradientViewController: UIViewController {
     }
     
     func setDarkMode() {
-        GradientViewController.darkMode = true
+        defaults.set(true, forKey: darkModeKey)
+        //GradientViewController.darkMode = true
     }
     
     func setLightMode() {
-        GradientViewController.darkMode = false
+        defaults.set(false, forKey: darkModeKey)
+        //GradientViewController.darkMode = false
     }
 
     /*

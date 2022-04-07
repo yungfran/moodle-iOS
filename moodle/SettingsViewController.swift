@@ -15,7 +15,7 @@ class SettingsViewController: GradientViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        darkModeToggle.setOn(false, animated: true)
+        darkModeToggle.setOn(UserDefaults.standard.bool(forKey: "darkMode"), animated: true)
     }
     
     @IBAction func darkModeToggleChanged(_ sender: Any) {
