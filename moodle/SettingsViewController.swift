@@ -8,17 +8,24 @@
 import UIKit
 import FirebaseAuth
 
-class SettingsViewController: UIViewController {
+class SettingsViewController: GradientViewController {
     @IBOutlet weak var darkModeToggle: UISwitch!
     @IBOutlet weak var notificationsToggle: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        darkModeToggle.setOn(false, animated: true)
     }
     
     @IBAction func darkModeToggleChanged(_ sender: Any) {
-        // TODO
+        if darkModeToggle.isOn {
+            super.setDarkMode()
+        } else {
+            super.setLightMode()
+        }
+        super.viewWillAppear(false)
+        
     }
     @IBAction func notificationsToggleChanged(_ sender: Any) {
         // TODO

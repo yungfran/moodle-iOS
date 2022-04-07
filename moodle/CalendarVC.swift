@@ -9,7 +9,7 @@
 import UIKit
 import FSCalendar
 
-class CalendarVC: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
+class CalendarVC: GradientViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
 
     @IBOutlet weak var calendar: FSCalendar!
     lazy var today = dateFormatter1.string(from: Date())

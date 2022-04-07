@@ -8,7 +8,7 @@
 import UIKit
 import FSCalendar
 
-class ExtendedDayVC: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
+class ExtendedDayVC: GradientViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
     
     var selectedDate: Date?
     
