@@ -9,7 +9,6 @@ import UIKit
 
 class GradientViewController: UIViewController {
 
-    //static var darkMode = false
     var gradientLayer = CAGradientLayer()
     let darkMode = false
     let darkModeKey = "darkMode"
@@ -36,7 +35,6 @@ class GradientViewController: UIViewController {
             // Create a gradient layer.
             
             gradientLayer.colors = [UIColor(red: 0.271, green: 0.263, blue: 0.576, alpha: 1.0).cgColor, UIColor(red: 0.306, green: 0.075, blue: 0.486, alpha: 1.0).cgColor]
-            //gradientLayer.colors = [UIColor(named: "customGradient1")!.cgColor, UIColor(named: "customGradient2")!.cgColor]
             gradientLayer.shouldRasterize = true
             view.layer.insertSublayer(gradientLayer, at: 0)
 
@@ -52,22 +50,10 @@ class GradientViewController: UIViewController {
     
     func setDarkMode() {
         defaults.set(true, forKey: darkModeKey)
-        //GradientViewController.darkMode = true
     }
     
     func setLightMode() {
         defaults.set(false, forKey: darkModeKey)
-        //GradientViewController.darkMode = false
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
