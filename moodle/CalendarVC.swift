@@ -33,21 +33,27 @@ class CalendarVC: GradientViewController, FSCalendarDelegate, FSCalendarDataSour
         calendar.delegate = self
         calendar.dataSource = self
         calendar.placeholderType = .none
+        // for create mock data
+        Mock.clearData()
+        Mock.generateData()
     }
     
     lazy var borderDefaultColors = ["2022/03/03": UIColor.red, today: UIColor.black]
-    let borderRadius = ["2022/03/03": 1.0]
+    lazy var borderRadius = [today: 0.5]
     lazy var fillDefaultColors = [today: UIColor.clear]
     
+    // set border color around the circles
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, borderDefaultColorFor date: Date) -> UIColor? {
         
         let key = self.dateFormatter1.string(from: date)
         if let color = self.borderDefaultColors[key] {
             return color
         }
+        //self.borderWidth = 2
         return appearance.borderDefaultColor
     }
     
+    // choose if calendar entries are circles or squares
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, borderRadiusFor date: Date) -> CGFloat {
         let key = self.dateFormatter1.string(from: date)
         if let radius = self.borderRadius[key] {
@@ -56,31 +62,42 @@ class CalendarVC: GradientViewController, FSCalendarDelegate, FSCalendarDataSour
         return appearance.borderRadius
     }
     
+    // set fill/background color of each day
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, fillDefaultColorFor date: Date) -> UIColor? {
-        let key = self.dateFormatter1.string(from: date)
-        if let color = self.fillDefaultColors[key] {
-            return color
-        } else {
-            //let colors = MoodleColors()
-            //return colors.rating2
-            //return MoodleColors.rating5
-            return MoodleColors.moodleColorsList[8]
-        }
-    }
-    
-    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        print("\(date) has been tapped")
-        self.performSegue(withIdentifier: "extendedDaySegue", sender: nil)
-    }
-    
-    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, fillSelectionColorFor date: Date) -> UIColor? {
-        let key = self.dateFormatter1.string(from: date)
-        if let color = self.fillDefaultColors[key] {
+        if let color = getDateColor(givenDate: date) {
             return color
         } else {
             return UIColor.gray
         }
     }
+    
+    func getDateColor(givenDate: Date) -> UIColor? {
+        let entry = Data.retrieveData(username: "user", date: givenDate)
+        if let entryRating = entry?.rating{
+            return MoodleColors.moodleColorsList[Int(entryRating) - 1]
+        }
+        return UIColor.gray
+    }
+    
+    // when a circle is tapped
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        print("\(date) has been tapped")
+        if Data.retrieveData(username: "user", date: date) != nil {
+            self.performSegue(withIdentifier: "extendedDaySegue", sender: nil)
+        } else {
+            print("\(date) has been tapped but has no log")
+        }
+    }
+    
+    // when going back, sets the color of the day selected
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, fillSelectionColorFor date: Date) -> UIColor? {
+        if let color = getDateColor(givenDate: date) {
+            return color
+        } else {
+            return UIColor.gray
+        }
+    }
+     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let nextVC = segue.destination as? ExtendedDayVC {
