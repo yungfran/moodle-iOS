@@ -5,7 +5,6 @@
 //  Created by Regina Chen on 3/10/22.
 //
 
-//TODO see if can shorten last week
 import UIKit
 import FSCalendar
 

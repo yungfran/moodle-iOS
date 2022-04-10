@@ -17,9 +17,9 @@ class ExtendedDayVC: GradientViewController, UICollectionViewDataSource, UIColle
     var images: [UIImage] = []
     
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var onDateLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
-    //create table of images??
     @IBOutlet weak var collectionView: UICollectionView!
     
     fileprivate let formatter: DateFormatter = {
@@ -43,12 +43,26 @@ class ExtendedDayVC: GradientViewController, UICollectionViewDataSource, UIColle
     func getLog(){
         getDetails()
         getImages()
+        getCircle()
     }
     
+    // get log detials about the entry
     func getDetails(){
         detailLabel.text = entry?.detail
     }
     
+    //draws the circle with the mood color as the background
+    // has a label with rating on top
+    func getCircle(){
+        let circleLayer = CAShapeLayer();
+        circleLayer.path = UIBezierPath(ovalIn: CGRect(x: (view.frame.size.width/2)-50, y: 100, width: 100, height: 100)).cgPath;
+        view.layer.insertSublayer(circleLayer, at: 0)
+        let entryRating = entry?.rating
+        circleLayer.fillColor = MoodleColors.moodleColorsList[Int(entryRating!) - 1].cgColor;
+        ratingLabel.text = String(entryRating!)
+    }
+    
+    //get log images
     func getImages(){
         images = entry?.images as! [UIImage]
         
