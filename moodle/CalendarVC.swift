@@ -38,7 +38,7 @@ class CalendarVC: GradientViewController, FSCalendarDelegate, FSCalendarDataSour
         Mock.generateData()
     }
     
-    lazy var borderDefaultColors = ["2022/03/03": UIColor.red, today: UIColor.black]
+    lazy var borderDefaultColors = ["2022/03/03": UIColor.red]
     lazy var borderRadius = [today: 0.5]
     lazy var fillDefaultColors = [today: UIColor.clear]
     

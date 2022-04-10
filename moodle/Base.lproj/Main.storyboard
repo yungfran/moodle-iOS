@@ -424,6 +424,9 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="headerTitleColor">
                                         <color key="value" systemColor="labelColor"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleDefaultColor">
+                                        <color key="value" systemColor="labelColor"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="dataSource" destination="gp0-7p-hrH" id="aPp-kG-JGA"/>
