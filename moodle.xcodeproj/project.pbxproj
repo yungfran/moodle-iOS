@@ -19,6 +19,7 @@
 		04651F1527E583A500360140 /* VisualizationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04651F1227E583A400360140 /* VisualizationsViewController.swift */; };
 		04651F1627E583A500360140 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04651F1327E583A500360140 /* SettingsViewController.swift */; };
 		04651F1927E5847900360140 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 04651F1827E5847900360140 /* Charts */; };
+		0484073E27F67968009C1E5C /* GradientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0484073D27F67967009C1E5C /* GradientViewController.swift */; };
 		04A24AAD27E80E4E0051CE38 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A24AAA27E80E4D0051CE38 /* LoginViewController.swift */; };
 		04A24AAE27E80E4E0051CE38 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A24AAB27E80E4D0051CE38 /* SignUpViewController.swift */; };
 		04E1021B27DAED22004E2F8F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04E1021A27DAED22004E2F8F /* GoogleService-Info.plist */; };
@@ -52,6 +53,7 @@
 		0462C27F27EABA9700CD1F06 /* readme.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = readme.txt; sourceTree = "<group>"; };
 		04651F1227E583A400360140 /* VisualizationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisualizationsViewController.swift; sourceTree = "<group>"; };
 		04651F1327E583A500360140 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		0484073D27F67967009C1E5C /* GradientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientViewController.swift; sourceTree = "<group>"; };
 		04A24AAA27E80E4D0051CE38 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		04A24AAB27E80E4D0051CE38 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		04E1021A27DAED22004E2F8F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				0414802327D2CFC200CA9FCC /* moodle.xcdatamodeld */,
 				1588611627E7D922005E1AD6 /* EnterDataVC.swift */,
 				042CCA9927E4C39700C24427 /* Data.swift */,
+				0484073D27F67967009C1E5C /* GradientViewController.swift */,
 			);
 			path = moodle;
 			sourceTree = "<group>";
@@ -228,6 +231,7 @@
 				0414801D27D2CFC200CA9FCC /* SceneDelegate.swift in Sources */,
 				04A24AAE27E80E4E0051CE38 /* SignUpViewController.swift in Sources */,
 				0414802527D2CFC200CA9FCC /* moodle.xcdatamodeld in Sources */,
+				0484073E27F67968009C1E5C /* GradientViewController.swift in Sources */,
 				04651F1527E583A500360140 /* VisualizationsViewController.swift in Sources */,
 				04A24AAD27E80E4E0051CE38 /* LoginViewController.swift in Sources */,
 				40B3B4CF27E6CABC0014BC3A /* MoodleColors.swift in Sources */,

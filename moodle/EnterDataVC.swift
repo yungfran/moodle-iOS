@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class EnterDataVC: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+class EnterDataVC: GradientViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
     @IBOutlet weak var questionButton: UIButton!
     @IBOutlet weak var userComments: UITextField!

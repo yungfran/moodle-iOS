@@ -34,7 +34,7 @@ extension ChartXAxisFormatter: IAxisValueFormatter {
     }
 }
 
-class VisualizationsViewController: UIViewController {
+class VisualizationsViewController: GradientViewController {
 
     @IBOutlet weak var lineChart: LineChartView!
     @IBOutlet weak var pieChart: PieChartView!
