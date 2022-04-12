@@ -8,12 +8,19 @@
 import UIKit
 import FSCalendar
 
-class ExtendedDayVC: GradientViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
+
+class ExtendedDayVC: GradientViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
+    let reuseIdentifier = "imageCell"
     var selectedDate: Date?
+    var entry: Entry?
+    var images: [UIImage] = []
     
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var onDateLabel: UILabel!
+    @IBOutlet weak var detailLabel: UILabel!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     fileprivate let formatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -24,7 +31,51 @@ class ExtendedDayVC: GradientViewController, FSCalendarDelegate, FSCalendarDataS
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        collectionView.delegate = self
+        collectionView.dataSource = self
         dateLabel.text = formatter.string(from: selectedDate!)
         onDateLabel.text = "On \(formatter.string(from: selectedDate!)) you...."
+        //aborts if nil
+        entry = Data.retrieveData(username: "user", date: selectedDate!)!
+        getLog()
     }
+    
+    func getLog(){
+        getDetails()
+        getImages()
+        getCircle()
+    }
+    
+    // get log detials about the entry
+    func getDetails(){
+        detailLabel.text = entry?.detail
+    }
+    
+    //draws the circle with the mood color as the background
+    // has a label with rating on top
+    func getCircle(){
+        let circleLayer = CAShapeLayer();
+        circleLayer.path = UIBezierPath(ovalIn: CGRect(x: (view.frame.size.width/2)-50, y: 100, width: 100, height: 100)).cgPath;
+        view.layer.insertSublayer(circleLayer, at: 0)
+        let entryRating = entry?.rating
+        circleLayer.fillColor = MoodleColors.moodleColorsList[Int(entryRating!) - 1].cgColor;
+        ratingLabel.text = String(entryRating!)
+    }
+    
+    //get log images
+    func getImages(){
+        images = entry?.images as! [UIImage]
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.images.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath as IndexPath) as! ImageCollectionViewCell
+        cell.imageViewCell.image = images[indexPath.row]
+        return cell
+    }
+    
 }

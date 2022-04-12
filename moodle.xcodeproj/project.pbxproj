@@ -37,6 +37,7 @@
 		159CD0ED27D2DA9A00DCEC19 /* FirebaseStorageSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 159CD0EC27D2DA9A00DCEC19 /* FirebaseStorageSwift-Beta */; };
 		40481B2A27DAC5C3003092D5 /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40481B2927DAC5C3003092D5 /* CalendarVC.swift */; };
 		4065B41A27DDBA00002C4639 /* ExtendedDayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065B41927DDBA00002C4639 /* ExtendedDayVC.swift */; };
+		408A348427F8F29B00918A59 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408A348327F8F29B00918A59 /* ImageCollectionViewCell.swift */; };
 		40B3B4CF27E6CABC0014BC3A /* MoodleColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B3B4CE27E6CABC0014BC3A /* MoodleColors.swift */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,7 @@
 		1588611627E7D922005E1AD6 /* EnterDataVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterDataVC.swift; sourceTree = "<group>"; };
 		40481B2927DAC5C3003092D5 /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
 		4065B41927DDBA00002C4639 /* ExtendedDayVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtendedDayVC.swift; sourceTree = "<group>"; };
+		408A348327F8F29B00918A59 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		40B3B4CE27E6CABC0014BC3A /* MoodleColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodleColors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -113,6 +115,7 @@
 				40B3B4CE27E6CABC0014BC3A /* MoodleColors.swift */,
 				40481B2927DAC5C3003092D5 /* CalendarVC.swift */,
 				4065B41927DDBA00002C4639 /* ExtendedDayVC.swift */,
+				408A348327F8F29B00918A59 /* ImageCollectionViewCell.swift */,
 				0414802027D2CFC200CA9FCC /* Main.storyboard */,
 				0414802627D2CFC300CA9FCC /* Assets.xcassets */,
 				04A24AAA27E80E4D0051CE38 /* LoginViewController.swift */,
@@ -224,6 +227,7 @@
 			files = (
 				4065B41A27DDBA00002C4639 /* ExtendedDayVC.swift in Sources */,
 				40481B2A27DAC5C3003092D5 /* CalendarVC.swift in Sources */,
+				408A348427F8F29B00918A59 /* ImageCollectionViewCell.swift in Sources */,
 				1588611727E7D922005E1AD6 /* EnterDataVC.swift in Sources */,
 				042CCA9A27E4C39700C24427 /* Data.swift in Sources */,
 				04651F1627E583A500360140 /* SettingsViewController.swift in Sources */,
@@ -411,7 +415,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5B5JDB692B;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = moodle/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
