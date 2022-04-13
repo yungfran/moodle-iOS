@@ -38,17 +38,18 @@ class VisualizationsViewController: GradientViewController {
 
     @IBOutlet weak var lineChart: LineChartView!
     @IBOutlet weak var pieChart: PieChartView!
+    @IBOutlet weak var intervalSegmentedControl: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        generateLineChart()
-        generatePieChart()
+        let entries = generateForInterval(byAdding: .day, value: -7)
+        generateLineChart(entries: entries)
+        generatePieChart(entries: entries)
     }
     
-    func generateLineChart() {
-        let raw = Data.retrieveData(username: "user")
+    func generateLineChart(entries raw: [Entry]) {
         
         var referenceTimeInterval: TimeInterval = 0
         if let minTimeInterval = (raw.map {
@@ -98,8 +99,7 @@ class VisualizationsViewController: GradientViewController {
         lineChart.legend.enabled = false
     }
     
-    func generatePieChart() {
-        let raw = Data.retrieveData(username: "user")
+    func generatePieChart(entries raw: [Entry]) {
         
         var entries: [PieChartDataEntry] = []
         
@@ -108,31 +108,87 @@ class VisualizationsViewController: GradientViewController {
         for entry in raw {
             counter[Int(entry.rating)] += 1
         }
+        let palette = MoodleColors.moodleColorsList
         
+        var setColors: [UIColor] = []
         for i in 1...10 {
-            let entry = PieChartDataEntry(value: Double(counter[i]), label: String(i))
-            entries.append(entry)
+            if counter[i] != 0 {
+                let entry = PieChartDataEntry(value: Double(counter[i]), label: String(i))
+                entries.append(entry)
+                setColors.append(palette[i - 1])
+            }
         }
         
         let set = PieChartDataSet(entries)
-        set.colors = MoodleColors.moodleColorsList
+        set.colors = setColors
         set.label = nil
         let data = PieChartData(dataSet: set)
+        data.setValueTextColor(UIColor.black)
+        
+        // no doubles displayed, only ints
+        let formatter = NumberFormatter()
+        formatter.minimumFractionDigits = 0
+        data.setValueFormatter(DefaultValueFormatter(formatter:formatter))
+        
         
         pieChart.data = data
         pieChart.animate(xAxisDuration: 1.5)
         pieChart.legend.enabled = false
+        pieChart.holeColor = nil
+        pieChart.entryLabelFont = UIFont.systemFont(ofSize: 25.0)
+        pieChart.entryLabelColor = UIColor.black
     }
 
     @IBAction func refreshPressed(_ sender: Any) {
-        generateLineChart()
-        generatePieChart()
+        let entries = generateForInterval(byAdding: .day, value: -7)
+        intervalSegmentedControl.selectedSegmentIndex = 0
+        generateLineChart(entries: entries)
+        generatePieChart(entries: entries)
     }
     
     @IBAction func generateDataPressed(_ sender: Any) {
         Mock.clearData()
         Mock.generateData()
-        generateLineChart()
-        generatePieChart()
+        let entries = generateForInterval(byAdding: .day, value: -7)
+        intervalSegmentedControl.selectedSegmentIndex = 0
+        generateLineChart(entries: entries)
+        generatePieChart(entries: entries)
+    }
+    
+    private func generateForInterval(byAdding component: Calendar.Component, value: Int) -> [Entry]{
+        let calendar = Calendar.current
+        let cur = Date()
+        let prev = calendar.date(byAdding: component, value: value, to: cur)
+        
+        let entries = Data.retrieveData(username: "user", beginning: prev!, end: cur)
+        return entries
+    }
+    
+    @IBAction func intervalDidChange(_ sender: Any) {
+        var entries: [Entry]
+        switch (intervalSegmentedControl.selectedSegmentIndex) {
+        case 0:
+//          one week
+            entries = generateForInterval(byAdding: .day, value: -7)
+        case 1:
+//          one month
+            entries = generateForInterval(byAdding: .month, value: -1)
+        case 2:
+//          3 months
+            entries = generateForInterval(byAdding: .month, value: -3)
+        case 3:
+//          6 months
+            entries = generateForInterval(byAdding: .month, value: -6)
+        case 4:
+//          1 year
+            entries = generateForInterval(byAdding: .year, value: -1)
+        case 5:
+//          all time (currently hard-coded to 20 years)
+            entries = generateForInterval(byAdding: .year, value: -20)
+        default:
+            abort()
+        }
+        generateLineChart(entries: entries)
+        generatePieChart(entries: entries)
     }
 }
