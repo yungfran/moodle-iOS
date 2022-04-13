@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import UserNotifications
 
 class SettingsViewController: GradientViewController {
     @IBOutlet weak var darkModeToggle: UISwitch!
@@ -15,7 +16,12 @@ class SettingsViewController: GradientViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        if defaults.object(forKey: "notificationsOn") == nil {
+            defaults.set(false, forKey: "notificationsOn")
+        }
+        
         darkModeToggle.setOn(UserDefaults.standard.bool(forKey: "darkMode"), animated: true)
+        notificationsToggle.setOn(UserDefaults.standard.bool(forKey: "notificationsOn"), animated: true)
     }
     
     @IBAction func darkModeToggleChanged(_ sender: Any) {
@@ -28,7 +34,33 @@ class SettingsViewController: GradientViewController {
         
     }
     @IBAction func notificationsToggleChanged(_ sender: Any) {
-        // TODO
+        
+        let notificationsKey = "notification"
+        
+        if notificationsToggle.isOn {
+            defaults.set(true, forKey: "notificationsOn")
+            let notification = UNMutableNotificationContent()
+            notification.title = "Moodle"
+            notification.body = "Don't forget to log today's mood!"
+            
+            var dt = DateComponents()
+            dt.calendar = Calendar.current
+            dt.hour = 17
+            let trigger = UNCalendarNotificationTrigger(dateMatching: dt, repeats: true)
+            
+            let request = UNNotificationRequest(identifier: notificationsKey, content: notification, trigger: trigger)
+            
+            UNUserNotificationCenter.current().add(request) {
+                error in
+                if error != nil {
+                    print("ruh roh")
+                }
+            }
+            
+        } else {
+            defaults.set(false, forKey: "notificationsOn")
+            UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        }
     }
     
     @IBAction func signOutPressed(_ sender: Any) {
