@@ -30,7 +30,7 @@ class EnterDataVC: GradientViewController, UIImagePickerControllerDelegate, UINa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        sliderView.backgroundColor = UIColor.clear.withAlphaComponent(0)
         sliderView.delegate = self
         sliderView.dataSource = self
     }
@@ -42,6 +42,7 @@ class EnterDataVC: GradientViewController, UIImagePickerControllerDelegate, UINa
     
     override func viewWillAppear(_ animated: Bool) {
         print("here")
+        super.viewWillAppear(animated)
         expandedView(Hidden:true) // Everytime the view appears, hide all the expanded stuff
         resetView()
     }
