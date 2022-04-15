@@ -31,11 +31,6 @@ class MoodScoreCollectionCell: UICollectionViewCell {
 //                self.numberLabel.center.x += 30
 //                self.numberLabel.center.y += 30
 //            }, completion: nil)
-            
-
         }
     }
-    
-    
-    
 }

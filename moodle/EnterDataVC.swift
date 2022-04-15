@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import FirebaseAuth
 
-class EnterDataVC: GradientViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+class EnterDataVC: GradientViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UITextFieldDelegate {
     
     var userMoodRating : Int = -1
     let expandedViewIdentifier = "ExpandedEntrySegue"
@@ -30,6 +30,8 @@ class EnterDataVC: GradientViewController, UIImagePickerControllerDelegate, UINa
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        userComments.delegate = self
+        
         sliderView.backgroundColor = UIColor.clear.withAlphaComponent(0)
         sliderView.delegate = self
         sliderView.dataSource = self
@@ -43,7 +45,7 @@ class EnterDataVC: GradientViewController, UIImagePickerControllerDelegate, UINa
     override func viewWillAppear(_ animated: Bool) {
         print("here")
         super.viewWillAppear(animated)
-        expandedView(Hidden:true) // Everytime the view appears, hide all the expanded stuff
+        expandedView(hidden:true) // Everytime the view appears, hide all the expanded stuff
         resetView()
     }
     
@@ -60,7 +62,7 @@ class EnterDataVC: GradientViewController, UIImagePickerControllerDelegate, UINa
         if Auth.auth().currentUser != nil && userMoodRating != -1 {
              let user = Auth.auth().currentUser?.email
              let date = Date()
-             Data.storeEntry(username: user!, date: date, rating: userMoodRating, detail: userComments.text, images:picturesToAdd)
+             Data.storeEntry(username: "user", date: date, rating: userMoodRating, detail: userComments.text, images:picturesToAdd)
         }
         
         if userMoodRating == -1 {
@@ -71,10 +73,8 @@ class EnterDataVC: GradientViewController, UIImagePickerControllerDelegate, UINa
             controller.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
             present(controller, animated: true, completion: nil)
         }
-        
     }
     
-
     /* Functions for adding pictures */
     var picturesToAdd: [UIImage] = []
     //     Called After "Choose" is pressed after an image has been selected / captured
@@ -135,7 +135,6 @@ class EnterDataVC: GradientViewController, UIImagePickerControllerDelegate, UINa
     }
     /* End Photo Adding Functions*/
     
-    
     /* Start Collection View Functions */
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 10 // Number of ratings
@@ -145,7 +144,6 @@ class EnterDataVC: GradientViewController, UIImagePickerControllerDelegate, UINa
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath as IndexPath) as! MoodScoreCollectionCell
         
-        
         cell.numberLabel.text = String(indexPath[1] + 1)
         cell.backgroundColor =  MoodleColors.moodleColorsList[indexPath[1]]
         cell.layer.masksToBounds = true
@@ -153,7 +151,6 @@ class EnterDataVC: GradientViewController, UIImagePickerControllerDelegate, UINa
         cell.numberLabel.centerYAnchor.constraint(equalTo: cell.centerYAnchor).isActive = true
         return cell
     }
-    
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath as IndexPath) as! MoodScoreCollectionCell
@@ -188,7 +185,6 @@ class EnterDataVC: GradientViewController, UIImagePickerControllerDelegate, UINa
         }
     }
     /* End Collection View Functions */
-    
     
     /* Start Animations for switching between standard and expanded view*/
     
@@ -259,21 +255,21 @@ class EnterDataVC: GradientViewController, UIImagePickerControllerDelegate, UINa
         )
     }
     
-    func expandedView(Hidden:Bool) {
-        userComments.isHidden = Hidden
+    func expandedView(hidden:Bool) {
+        userComments.isHidden = hidden
         userComments.alpha = 0.0
-        addAdditionalInfoLabel.isHidden = Hidden
+        addAdditionalInfoLabel.isHidden = hidden
         addAdditionalInfoLabel.alpha = 0.0
-        attachPhotoLabel.isHidden = Hidden
+        attachPhotoLabel.isHidden = hidden
         attachPhotoLabel.alpha = 0.0
-        attachPhotoButton.isHidden = Hidden
+        attachPhotoButton.isHidden = hidden
         attachPhotoButton.alpha = 0.0
     }
     
-    func standardView(Hidden:Bool) {
-        questionButton.isHidden = Hidden
-        enterMoodLabel.isHidden = Hidden
-        addMoreInfoButton.isHidden = Hidden
+    func standardView(hidden:Bool) {
+        questionButton.isHidden = hidden
+        enterMoodLabel.isHidden = hidden
+        addMoreInfoButton.isHidden = hidden
     }
     
     func fadeInExpandedView() {
@@ -291,7 +287,6 @@ class EnterDataVC: GradientViewController, UIImagePickerControllerDelegate, UINa
             }
         )
         
-        
         UIView.animate (
             withDuration: 2.0,
             animations: {
@@ -305,7 +300,6 @@ class EnterDataVC: GradientViewController, UIImagePickerControllerDelegate, UINa
                 self.attachPhotoButton.alpha = 1.0
             }
         )
-        
         
         UIView.animate (
             withDuration: 1.0,
@@ -326,7 +320,6 @@ class EnterDataVC: GradientViewController, UIImagePickerControllerDelegate, UINa
             }
         )
         
-        
         UIView.animate(
             withDuration: 1.0,
             animations: {
@@ -338,13 +331,20 @@ class EnterDataVC: GradientViewController, UIImagePickerControllerDelegate, UINa
     /* Start Animations for switching between standard and expanded view*/
     @IBAction func expandDataEntry(_ sender: Any) {
        // fadeOutStandardView() // Fades out the standard view
-        expandedView(Hidden:false) // unhides all expanded view, and makes their alpha values 0, ready for fading in
+        expandedView(hidden:false) // unhides all expanded view, and makes their alpha values 0, ready for fading in
         fadeInExpandedView()
-        
-        
-        
         
     }
     
+    // Called when 'return' key pressed
+    func textFieldShouldReturn(_ textField:UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    // Called when the user clicks on the view outside of the UITextField
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
 
 }

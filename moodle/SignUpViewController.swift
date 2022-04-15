@@ -8,7 +8,7 @@
 import UIKit
 import FirebaseAuth
 
-class SignUpViewController: GradientViewController {
+class SignUpViewController: GradientViewController, UITextFieldDelegate {
     
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var emailField: UITextField!
@@ -17,6 +17,10 @@ class SignUpViewController: GradientViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        passwordField.delegate = self
+        emailField.delegate = self
+        confirmPasswordField.delegate = self
 
         // Do any additional setup after loading the view.
         Auth.auth().addStateDidChangeListener() {
@@ -46,7 +50,17 @@ class SignUpViewController: GradientViewController {
             
             present(controller, animated: true, completion: nil)
         }
-        
+    }
+    
+    // Called when 'return' key pressed
+    func textFieldShouldReturn(_ textField:UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    // Called when the user clicks on the view outside of the UITextField
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
 }

@@ -8,7 +8,7 @@
 import UIKit
 import FirebaseAuth
 
-class LoginViewController: GradientViewController {
+class LoginViewController: GradientViewController, UITextFieldDelegate {
 
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var emailField: UITextField!
@@ -16,6 +16,9 @@ class LoginViewController: GradientViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        passwordField.delegate = self
+        emailField.delegate = self
         
         Auth.auth().addStateDidChangeListener() {
             auth, user in
@@ -36,6 +39,17 @@ class LoginViewController: GradientViewController {
                 self.errorMessage.text = ""
             }
         }
+    }
+    
+    // Called when 'return' key pressed
+    func textFieldShouldReturn(_ textField:UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    // Called when the user clicks on the view outside of the UITextField
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
 }

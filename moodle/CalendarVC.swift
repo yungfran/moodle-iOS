@@ -37,6 +37,11 @@ class CalendarVC: GradientViewController, FSCalendarDelegate, FSCalendarDataSour
         Mock.generateData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        calendar.reloadData()
+    }
+    
     lazy var borderDefaultColors = ["2022/03/03": UIColor.red]
     lazy var borderRadius = [today: 0.5]
     lazy var fillDefaultColors = [today: UIColor.clear]
@@ -97,7 +102,6 @@ class CalendarVC: GradientViewController, FSCalendarDelegate, FSCalendarDataSour
         }
     }
      
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let nextVC = segue.destination as? ExtendedDayVC {
             nextVC.selectedDate = calendar.selectedDate

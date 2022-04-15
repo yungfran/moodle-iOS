@@ -189,7 +189,7 @@ class Mock {
     
     static func generateData() {
         let cur = Date()
-        let start = Calendar.current.date(byAdding: .day, value: -365, to: cur)!
+        let start = Calendar.current.date(byAdding: .day, value: -100, to: cur)!
         let end = Calendar.current.date(byAdding: .day, value: -3, to: cur)!
         let range = Mock.datesRange(from: start, to: end)
         
