@@ -74,7 +74,9 @@ class ExtendedDayVC: GradientViewController, UICollectionViewDataSource, UIColle
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath as IndexPath) as! ImageCollectionViewCell
-        cell.imageViewCell.image = images[indexPath.row]
+        let currPhoto = images[indexPath.row]
+        cell.imageViewCell.image = currPhoto
+
         return cell
     }
     
