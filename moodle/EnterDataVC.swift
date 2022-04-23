@@ -15,6 +15,7 @@ class EnterDataVC: GradientViewController, UIImagePickerControllerDelegate, UINa
     var userMoodRating : Int = -1
     let expandedViewIdentifier = "ExpandedEntrySegue"
     let cellIdentifier = "moodCell"
+    var picturesToAdd: [UIImage] = []
     
     /* Standard View Items */
     @IBOutlet weak var enterMoodLabel: UITextField!
@@ -32,7 +33,7 @@ class EnterDataVC: GradientViewController, UIImagePickerControllerDelegate, UINa
     override func viewDidLoad() {
         super.viewDidLoad()
         userComments.delegate = self
-        
+        picturesToAdd = []
         sliderView.backgroundColor = UIColor.clear.withAlphaComponent(0)
         sliderView.delegate = self
         sliderView.dataSource = self
@@ -77,7 +78,6 @@ class EnterDataVC: GradientViewController, UIImagePickerControllerDelegate, UINa
     }
     
     /* Functions for adding pictures */
-    var picturesToAdd: [UIImage] = []
     //     Called After "Choose" is pressed after an image has been selected / captured
     //     Need to adjust info plst??
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
