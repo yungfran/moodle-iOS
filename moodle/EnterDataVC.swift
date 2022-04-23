@@ -8,8 +8,9 @@
 import Foundation
 import UIKit
 import FirebaseAuth
+import PhotosUI
 
-class EnterDataVC: GradientViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UITextFieldDelegate {
+class EnterDataVC: GradientViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UITextFieldDelegate, PHPickerViewControllerDelegate {
     
     var userMoodRating : Int = -1
     let expandedViewIdentifier = "ExpandedEntrySegue"
@@ -99,10 +100,50 @@ class EnterDataVC: GradientViewController, UIImagePickerControllerDelegate, UINa
         let takePhotoAction = UIAlertAction(title: "Take Photo", style: .default, handler: {_ in self.takePhotoHandler()})
         controller.addAction(takePhotoAction)
         
-        let uploadPhotoAction = UIAlertAction(title: "Upload Photo From Library", style: .default, handler: {_ in self.uploadPhotoHandler()})
+        let uploadPhotoAction = UIAlertAction(title: "Upload Photo From Library", style: .default, handler: {_ in self.uploadPhotos()})
         controller.addAction(uploadPhotoAction)
         
         present(controller, animated: true, completion: nil)
+    }
+    
+    func uploadPhotos() {
+        var configuration = PHPickerConfiguration()
+        configuration.filter = .images
+        configuration.selectionLimit = 0
+        let picker = PHPickerViewController(configuration: configuration)
+        picker.delegate = self
+        present(picker, animated: true)
+    }
+    
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        if(results.count == 0){
+            picker.dismiss(animated: true, completion: nil)
+            return
+        }
+        var timesToLoop = results.count
+        var ourResults:[PHPickerResult] = []
+        for result in results {
+            ourResults.append(result)
+        }
+        
+        for i in 1...timesToLoop{
+            if let itemProvider = ourResults.first?.itemProvider, itemProvider.canLoadObject(ofClass: UIImage.self) {
+                itemProvider.loadObject(ofClass: UIImage.self)
+                { [weak self]  image, error in
+                    DispatchQueue.main.async { //tried main.sync as well
+                      guard let self = self else { return }
+                      if let image = image as? UIImage {
+                          self.picturesToAdd.append(image)
+                          ourResults = Array(ourResults[0...])
+                          print(i)
+                        } else {
+                            //ERROR
+                        }
+                    }
+                }
+            }
+        }
+        picker.dismiss(animated: true, completion: nil)
     }
     
     // https://stackoverflow.com/questions/41717115/how-to-make-uiimagepickercontroller-for-camera-and-photo-library-at-the-same-tim
