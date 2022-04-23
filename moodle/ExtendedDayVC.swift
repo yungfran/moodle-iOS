@@ -80,4 +80,24 @@ class ExtendedDayVC: GradientViewController, UICollectionViewDataSource, UIColle
         return cell
     }
     
+    //make images expandable when tapped
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+
+        let imageView = UIImageView(image: images[indexPath.row])
+        imageView.frame = self.view.frame
+        imageView.backgroundColor = .black
+        imageView.contentMode = .center
+        imageView.isUserInteractionEnabled = true
+
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
+        imageView.addGestureRecognizer(tap)
+
+        self.view.addSubview(imageView)
+    }
+
+    // Use to back from full mode
+    @objc func dismissFullscreenImage(_ sender: UITapGestureRecognizer) {
+        sender.view?.removeFromSuperview()
+    }
+    
 }
