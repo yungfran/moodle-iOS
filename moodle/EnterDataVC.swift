@@ -120,30 +120,39 @@ class EnterDataVC: GradientViewController, UIImagePickerControllerDelegate, UINa
             picker.dismiss(animated: true, completion: nil)
             return
         }
-        var timesToLoop = results.count
-        var ourResults:[PHPickerResult] = []
-        for result in results {
-            ourResults.append(result)
-        }
+//        var timesToLoop = results.count
+//        var ourResults:[PHPickerResult] = []
+//        for result in results {
+//            ourResults.append(result)
+//        }
+//
+//        for i in 1...timesToLoop{
+//            if let itemProvider = ourResults.first?.itemProvider, itemProvider.canLoadObject(ofClass: UIImage.self) {
+//                itemProvider.loadObject(ofClass: UIImage.self)
+//                { [weak self]  image, error in
+//                    DispatchQueue.main.async { //tried main.sync as well
+//                      guard let self = self else { return }
+//                      if let image = image as? UIImage {
+//                          self.picturesToAdd.append(image)
+//                          ourResults = Array(ourResults[0...])
+//                          print(i)
+//                        } else {
+//                            //ERROR
+//                        }
+//                    }
+//                }
+//            }
+//        }
+        picker.dismiss(animated: true, completion: nil)
         
-        for i in 1...timesToLoop{
-            if let itemProvider = ourResults.first?.itemProvider, itemProvider.canLoadObject(ofClass: UIImage.self) {
-                itemProvider.loadObject(ofClass: UIImage.self)
-                { [weak self]  image, error in
-                    DispatchQueue.main.async { //tried main.sync as well
-                      guard let self = self else { return }
-                      if let image = image as? UIImage {
-                          self.picturesToAdd.append(image)
-                          ourResults = Array(ourResults[0...])
-                          print(i)
-                        } else {
-                            //ERROR
-                        }
-                    }
-                }
+        for result in results {
+            result.itemProvider.loadObject(ofClass: UIImage.self) {
+                (object, error) in
+                guard let image = object as? UIImage else { return }
+                
+                self.picturesToAdd.append(image)
             }
         }
-        picker.dismiss(animated: true, completion: nil)
     }
     
     // https://stackoverflow.com/questions/41717115/how-to-make-uiimagepickercontroller-for-camera-and-photo-library-at-the-same-tim
