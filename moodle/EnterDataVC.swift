@@ -46,6 +46,7 @@ class EnterDataVC: GradientViewController, UIImagePickerControllerDelegate, UINa
     
     override func viewWillAppear(_ animated: Bool) {
         print("here")
+        picturesToAdd = []
         super.viewWillAppear(animated)
         expandedView(hidden:true) // Everytime the view appears, hide all the expanded stuff
         resetView()
@@ -64,6 +65,9 @@ class EnterDataVC: GradientViewController, UIImagePickerControllerDelegate, UINa
         if Auth.auth().currentUser != nil && userMoodRating != -1 {
              let user = Auth.auth().currentUser?.email
              let date = Date()
+            for pic in picturesToAdd {
+                print(pic.hash)
+            }
              Data.storeEntry(username: "user", date: date, rating: userMoodRating, detail: userComments.text, images:picturesToAdd)
         }
         
@@ -120,29 +124,7 @@ class EnterDataVC: GradientViewController, UIImagePickerControllerDelegate, UINa
             picker.dismiss(animated: true, completion: nil)
             return
         }
-//        var timesToLoop = results.count
-//        var ourResults:[PHPickerResult] = []
-//        for result in results {
-//            ourResults.append(result)
-//        }
-//
-//        for i in 1...timesToLoop{
-//            if let itemProvider = ourResults.first?.itemProvider, itemProvider.canLoadObject(ofClass: UIImage.self) {
-//                itemProvider.loadObject(ofClass: UIImage.self)
-//                { [weak self]  image, error in
-//                    DispatchQueue.main.async { //tried main.sync as well
-//                      guard let self = self else { return }
-//                      if let image = image as? UIImage {
-//                          self.picturesToAdd.append(image)
-//                          ourResults = Array(ourResults[0...])
-//                          print(i)
-//                        } else {
-//                            //ERROR
-//                        }
-//                    }
-//                }
-//            }
-//        }
+        
         picker.dismiss(animated: true, completion: nil)
         
         for result in results {
