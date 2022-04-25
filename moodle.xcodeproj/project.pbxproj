@@ -23,6 +23,8 @@
 		04A24AAD27E80E4E0051CE38 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A24AAA27E80E4D0051CE38 /* LoginViewController.swift */; };
 		04A24AAE27E80E4E0051CE38 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A24AAB27E80E4D0051CE38 /* SignUpViewController.swift */; };
 		04E1021B27DAED22004E2F8F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04E1021A27DAED22004E2F8F /* GoogleService-Info.plist */; };
+		1504D3732815FA4D00753F0E /* moodleLogoBlack.png in Resources */ = {isa = PBXBuildFile; fileRef = 1504D3722815FA4D00753F0E /* moodleLogoBlack.png */; };
+		1504D3752816654800753F0E /* moodleLogoWhite.png in Resources */ = {isa = PBXBuildFile; fileRef = 1504D3742816654800753F0E /* moodleLogoWhite.png */; };
 		1514B50628022D570052CE22 /* MoodScoreCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1514B50528022D570052CE22 /* MoodScoreCollectionCell.swift */; };
 		1568A45F27FCFF7200A78176 /* EnterData.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1568A45E27FCFF7200A78176 /* EnterData.storyboard */; };
 		1588611727E7D922005E1AD6 /* EnterDataVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1588611627E7D922005E1AD6 /* EnterDataVC.swift */; };
@@ -61,6 +63,8 @@
 		04A24AAA27E80E4D0051CE38 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		04A24AAB27E80E4D0051CE38 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		04E1021A27DAED22004E2F8F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1504D3722815FA4D00753F0E /* moodleLogoBlack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = moodleLogoBlack.png; path = moodle/moodleLogoBlack.png; sourceTree = SOURCE_ROOT; };
+		1504D3742816654800753F0E /* moodleLogoWhite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moodleLogoWhite.png; sourceTree = "<group>"; };
 		1514B50528022D570052CE22 /* MoodScoreCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodScoreCollectionCell.swift; sourceTree = "<group>"; };
 		1568A45E27FCFF7200A78176 /* EnterData.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EnterData.storyboard; sourceTree = "<group>"; };
 		1588611627E7D922005E1AD6 /* EnterDataVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterDataVC.swift; sourceTree = "<group>"; };
@@ -137,6 +141,8 @@
 				042CCA9927E4C39700C24427 /* Data.swift */,
 				15DA1F27280622AF000E58EF /* PulseAnimation.swift */,
 				0484073D27F67967009C1E5C /* GradientViewController.swift */,
+				1504D3742816654800753F0E /* moodleLogoWhite.png */,
+				1504D3722815FA4D00753F0E /* moodleLogoBlack.png */,
 			);
 			path = moodle;
 			sourceTree = "<group>";
@@ -219,9 +225,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1504D3752816654800753F0E /* moodleLogoWhite.png in Resources */,
 				0462C28027EABA9700CD1F06 /* readme.txt in Resources */,
 				0414802A27D2CFC300CA9FCC /* LaunchScreen.storyboard in Resources */,
 				04E1021B27DAED22004E2F8F /* GoogleService-Info.plist in Resources */,
+				1504D3732815FA4D00753F0E /* moodleLogoBlack.png in Resources */,
 				1568A45F27FCFF7200A78176 /* EnterData.storyboard in Resources */,
 				0414802727D2CFC300CA9FCC /* Assets.xcassets in Resources */,
 				0414802227D2CFC200CA9FCC /* Main.storyboard in Resources */,
