@@ -8,12 +8,14 @@
 import Foundation
 import UIKit
 import FirebaseAuth
+import PhotosUI
 
-class EnterDataVC: GradientViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UITextFieldDelegate {
+class EnterDataVC: GradientViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UITextFieldDelegate, PHPickerViewControllerDelegate {
     
     var userMoodRating : Int = -1
     let expandedViewIdentifier = "ExpandedEntrySegue"
     let cellIdentifier = "moodCell"
+    var picturesToAdd: [UIImage] = []
     
     /* Standard View Items */
     @IBOutlet weak var enterMoodLabel: UITextField!
@@ -31,7 +33,7 @@ class EnterDataVC: GradientViewController, UIImagePickerControllerDelegate, UINa
     override func viewDidLoad() {
         super.viewDidLoad()
         userComments.delegate = self
-        
+        picturesToAdd = []
         sliderView.backgroundColor = UIColor.clear.withAlphaComponent(0)
         sliderView.delegate = self
         sliderView.dataSource = self
@@ -44,6 +46,7 @@ class EnterDataVC: GradientViewController, UIImagePickerControllerDelegate, UINa
     
     override func viewWillAppear(_ animated: Bool) {
         print("here")
+        picturesToAdd = []
         super.viewWillAppear(animated)
         expandedView(hidden:true) // Everytime the view appears, hide all the expanded stuff
         resetView()
@@ -62,6 +65,9 @@ class EnterDataVC: GradientViewController, UIImagePickerControllerDelegate, UINa
         if Auth.auth().currentUser != nil && userMoodRating != -1 {
              let user = Auth.auth().currentUser?.email
              let date = Date()
+            for pic in picturesToAdd {
+                print(pic.hash)
+            }
              Data.storeEntry(username: "user", date: date, rating: userMoodRating, detail: userComments.text, images:picturesToAdd)
         }
         
@@ -76,7 +82,6 @@ class EnterDataVC: GradientViewController, UIImagePickerControllerDelegate, UINa
     }
     
     /* Functions for adding pictures */
-    var picturesToAdd: [UIImage] = []
     //     Called After "Choose" is pressed after an image has been selected / captured
     //     Need to adjust info plst??
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
@@ -99,10 +104,37 @@ class EnterDataVC: GradientViewController, UIImagePickerControllerDelegate, UINa
         let takePhotoAction = UIAlertAction(title: "Take Photo", style: .default, handler: {_ in self.takePhotoHandler()})
         controller.addAction(takePhotoAction)
         
-        let uploadPhotoAction = UIAlertAction(title: "Upload Photo From Library", style: .default, handler: {_ in self.uploadPhotoHandler()})
+        let uploadPhotoAction = UIAlertAction(title: "Upload Photo From Library", style: .default, handler: {_ in self.uploadPhotos()})
         controller.addAction(uploadPhotoAction)
         
         present(controller, animated: true, completion: nil)
+    }
+    
+    func uploadPhotos() {
+        var configuration = PHPickerConfiguration()
+        configuration.filter = .images
+        configuration.selectionLimit = 0
+        let picker = PHPickerViewController(configuration: configuration)
+        picker.delegate = self
+        present(picker, animated: true)
+    }
+    
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        if(results.count == 0){
+            picker.dismiss(animated: true, completion: nil)
+            return
+        }
+        
+        picker.dismiss(animated: true, completion: nil)
+        
+        for result in results {
+            result.itemProvider.loadObject(ofClass: UIImage.self) {
+                (object, error) in
+                guard let image = object as? UIImage else { return }
+                
+                self.picturesToAdd.append(image)
+            }
+        }
     }
     
     // https://stackoverflow.com/questions/41717115/how-to-make-uiimagepickercontroller-for-camera-and-photo-library-at-the-same-tim
