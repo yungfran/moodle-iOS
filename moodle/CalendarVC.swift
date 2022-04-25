@@ -42,20 +42,8 @@ class CalendarVC: GradientViewController, FSCalendarDelegate, FSCalendarDataSour
         calendar.reloadData()
     }
     
-    lazy var borderDefaultColors = ["2022/03/03": UIColor.red]
     lazy var borderRadius = [today: 0.5]
     lazy var fillDefaultColors = [today: UIColor.clear]
-    
-    // set border color around the circles
-    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, borderDefaultColorFor date: Date) -> UIColor? {
-        
-        let key = self.dateFormatter1.string(from: date)
-        if let color = self.borderDefaultColors[key] {
-            return color
-        }
-        //self.borderWidth = 2
-        return appearance.borderDefaultColor
-    }
     
     // choose if calendar entries are circles or squares
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, borderRadiusFor date: Date) -> CGFloat {
