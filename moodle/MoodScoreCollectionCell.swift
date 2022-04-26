@@ -17,6 +17,7 @@ class MoodScoreCollectionCell: UICollectionViewCell {
         self.layer.cornerRadius = self.frame.size.width / 2
         //numberLabel.textAlignment = .center
         numberLabel.translatesAutoresizingMaskIntoConstraints = false
+        numberLabel.textColor = .black
 //        numberLabel.center = self.center
 //        numberLabel.center.x = self.center.x
 //        numberLabel.center.y = self.center.y
