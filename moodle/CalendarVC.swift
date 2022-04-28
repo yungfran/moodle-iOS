@@ -33,8 +33,6 @@ class CalendarVC: GradientViewController, FSCalendarDelegate, FSCalendarDataSour
         calendar.dataSource = self
         calendar.placeholderType = .none
         // for create mock data
-        Mock.clearData()
-        Mock.generateData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
