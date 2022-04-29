@@ -49,6 +49,8 @@ class ExtendedDayVC: GradientViewController, UICollectionViewDataSource, UIColle
     // get log detials about the entry
     func getDetails(){
         detailLabel.text = entry?.detail
+        detailLabel.layer.masksToBounds = true
+        detailLabel.layer.cornerRadius = 8
     }
     
     //draws the circle with the mood color as the background
@@ -80,19 +82,41 @@ class ExtendedDayVC: GradientViewController, UICollectionViewDataSource, UIColle
         return cell
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        let layout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        collectionView.collectionViewLayout = layout
+    }
+    
     //make images expandable when tapped
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
+        
         let imageView = UIImageView(image: images[indexPath.row])
         imageView.frame = self.view.frame
-        imageView.backgroundColor = .black
-        imageView.contentMode = .center
+        imageView.backgroundColor = .white
+        imageView.contentMode = .scaleAspectFit
         imageView.isUserInteractionEnabled = true
 
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
         imageView.addGestureRecognizer(tap)
 
         self.view.addSubview(imageView)
+        //imageView.alpha = 0.0
+         
+        /*
+        UIView.animate(withDuration: 0.25, delay: 0.0, options:.transitionCurlUp) { () -> Void in
+            imageView.alpha = 1.0
+        }
+        
+        
+        UIView.animate(withDuration: 2.0, animations: {
+            imageView.alpha = 1.0
+            imageView.frame.transform = CGAffineTransform(translationX: 0, y: -100)
+        })
+         */
+
     }
 
     // Use to back from full mode
