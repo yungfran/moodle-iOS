@@ -40,6 +40,7 @@
 		159CD0EB27D2DA9A00DCEC19 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 159CD0EA27D2DA9A00DCEC19 /* FirebaseStorage */; };
 		159CD0ED27D2DA9A00DCEC19 /* FirebaseStorageSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 159CD0EC27D2DA9A00DCEC19 /* FirebaseStorageSwift-Beta */; };
 		15DA1F28280622B0000E58EF /* PulseAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DA1F27280622AF000E58EF /* PulseAnimation.swift */; };
+		400C865F2820F5750006BD1B /* ExpandedPhotoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400C865E2820F5750006BD1B /* ExpandedPhotoVC.swift */; };
 		40481B2A27DAC5C3003092D5 /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40481B2927DAC5C3003092D5 /* CalendarVC.swift */; };
 		4065B41A27DDBA00002C4639 /* ExtendedDayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065B41927DDBA00002C4639 /* ExtendedDayVC.swift */; };
 		408A348427F8F29B00918A59 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408A348327F8F29B00918A59 /* ImageCollectionViewCell.swift */; };
@@ -69,6 +70,7 @@
 		1568A45E27FCFF7200A78176 /* EnterData.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EnterData.storyboard; sourceTree = "<group>"; };
 		1588611627E7D922005E1AD6 /* EnterDataVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterDataVC.swift; sourceTree = "<group>"; };
 		15DA1F27280622AF000E58EF /* PulseAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseAnimation.swift; sourceTree = "<group>"; };
+		400C865E2820F5750006BD1B /* ExpandedPhotoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedPhotoVC.swift; sourceTree = "<group>"; };
 		40481B2927DAC5C3003092D5 /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
 		4065B41927DDBA00002C4639 /* ExtendedDayVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtendedDayVC.swift; sourceTree = "<group>"; };
 		408A348327F8F29B00918A59 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				40481B2927DAC5C3003092D5 /* CalendarVC.swift */,
 				4065B41927DDBA00002C4639 /* ExtendedDayVC.swift */,
 				408A348327F8F29B00918A59 /* ImageCollectionViewCell.swift */,
+				400C865E2820F5750006BD1B /* ExpandedPhotoVC.swift */,
 				0414802027D2CFC200CA9FCC /* Main.storyboard */,
 				0414802627D2CFC300CA9FCC /* Assets.xcassets */,
 				04A24AAA27E80E4D0051CE38 /* LoginViewController.swift */,
@@ -259,6 +262,7 @@
 				04651F1527E583A500360140 /* VisualizationsViewController.swift in Sources */,
 				04A24AAD27E80E4E0051CE38 /* LoginViewController.swift in Sources */,
 				40B3B4CF27E6CABC0014BC3A /* MoodleColors.swift in Sources */,
+				400C865F2820F5750006BD1B /* ExpandedPhotoVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
