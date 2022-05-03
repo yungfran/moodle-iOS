@@ -114,6 +114,7 @@ class EnterDataVC: GradientViewController, UIImagePickerControllerDelegate, UINa
         var configuration = PHPickerConfiguration()
         configuration.filter = .images
         configuration.selectionLimit = 0
+        configuration.preferredAssetRepresentationMode = .current
         let picker = PHPickerViewController(configuration: configuration)
         picker.delegate = self
         present(picker, animated: true)
@@ -128,11 +129,13 @@ class EnterDataVC: GradientViewController, UIImagePickerControllerDelegate, UINa
         picker.dismiss(animated: true, completion: nil)
         
         for result in results {
-            result.itemProvider.loadObject(ofClass: UIImage.self) {
-                (object, error) in
-                guard let image = object as? UIImage else { return }
-                
-                self.picturesToAdd.append(image)
+            result.itemProvider.loadFileRepresentation(forTypeIdentifier: UTType.image.identifier) {
+                (url, error) in
+                guard let coeUrl = url else { return }
+
+                let data = NSData(contentsOf: coeUrl)!
+                let image = UIImage(data: data as Foundation.Data)
+                self.picturesToAdd.append(image!)
             }
         }
     }
