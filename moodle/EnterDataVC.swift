@@ -63,12 +63,12 @@ class EnterDataVC: GradientViewController, UIImagePickerControllerDelegate, UINa
     
     @IBAction func pressedSubmit(_ sender: Any) {
         if Auth.auth().currentUser != nil && userMoodRating != -1 {
-             let user = Auth.auth().currentUser?.email
+            guard let user = Auth.auth().currentUser?.email else { abort() }
              let date = Date()
             for pic in picturesToAdd {
                 print(pic.hash)
             }
-             Data.storeEntry(username: "user", date: date, rating: userMoodRating, detail: userComments.text, images:picturesToAdd)
+             Data.storeEntry(username: user, date: date, rating: userMoodRating, detail: userComments.text, images:picturesToAdd)
         }
         
         if userMoodRating == -1 {

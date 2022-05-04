@@ -7,7 +7,7 @@
 
 import UIKit
 import FSCalendar
-
+import FirebaseAuth
 
 class ExtendedDayVC: GradientViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
@@ -37,7 +37,9 @@ class ExtendedDayVC: GradientViewController, UICollectionViewDataSource, UIColle
         dateLabel.text = formatter.string(from: selectedDate!)
         onDateLabel.text = "On \(formatter.string(from: selectedDate!)) you...."
         //aborts if nil
-        entry = Data.retrieveData(username: "user", date: selectedDate!)!
+        
+        guard let user = Auth.auth().currentUser?.email else { abort() }
+        entry = Data.retrieveData(username: user, date: selectedDate!)!
         getLog()
     }
     

@@ -7,6 +7,7 @@
 
 import UIKit
 import Charts
+import FirebaseAuth
 
 class ChartXAxisFormatter {
     var dateFormatter: DateFormatter?
@@ -159,8 +160,9 @@ class VisualizationsViewController: GradientViewController {
         let calendar = Calendar.current
         let cur = Date()
         let prev = calendar.date(byAdding: component, value: value, to: cur)
+        guard let user = Auth.auth().currentUser?.email else { abort() }
         
-        let entries = Data.retrieveData(username: "user", beginning: prev!, end: cur)
+        let entries = Data.retrieveData(username: user, beginning: prev!, end: cur)
         return entries
     }
     

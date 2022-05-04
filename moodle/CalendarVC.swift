@@ -7,6 +7,7 @@
 
 import UIKit
 import FSCalendar
+import FirebaseAuth
 
 class CalendarVC: GradientViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
 
@@ -62,7 +63,9 @@ class CalendarVC: GradientViewController, FSCalendarDelegate, FSCalendarDataSour
     }
     
     func getDateColor(givenDate: Date) -> UIColor? {
-        let entry = Data.retrieveData(username: "user", date: givenDate)
+        
+        guard let user = Auth.auth().currentUser?.email else { abort() }
+        let entry = Data.retrieveData(username: user, date: givenDate)
         if let entryRating = entry?.rating{
             return MoodleColors.moodleColorsList[Int(entryRating) - 1]
         }
@@ -72,7 +75,9 @@ class CalendarVC: GradientViewController, FSCalendarDelegate, FSCalendarDataSour
     // when a circle is tapped
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         print("\(date) has been tapped")
-        if Data.retrieveData(username: "user", date: date) != nil {
+        
+        guard let user = Auth.auth().currentUser?.email else { abort() }
+        if Data.retrieveData(username: user, date: date) != nil {
             self.performSegue(withIdentifier: "extendedDaySegue", sender: nil)
         } else {
             print("\(date) has been tapped but has no log")

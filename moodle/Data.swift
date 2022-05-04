@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import CoreData
+import FirebaseAuth
 
 class Data {
     
@@ -130,10 +131,10 @@ class Data {
         let request: NSFetchRequest<Entry> = Entry.fetchRequest()
         
         var fetched: [Entry]?
-
+        guard let user = Auth.auth().currentUser?.email else { abort() }
         let startPredicate = NSPredicate(format: "date >= %@", beginning as NSDate)
         let endPredicate = NSPredicate(format: "date < %@", end as NSDate)
-        let userPredicate = NSPredicate(format: "username = %@", "user")
+        let userPredicate = NSPredicate(format: "username = %@", user)
         let compound = NSCompoundPredicate(andPredicateWithSubpredicates: [startPredicate, endPredicate, userPredicate])
 
         request.predicate = compound
@@ -199,8 +200,9 @@ class Mock {
             var images: [UIImage] = []
             images.append(UIColor.red.image(CGSize(width: 200, height: 200)))
             images.append(UIColor.blue.image(CGSize(width: 200, height: 200)))
+            guard let user = Auth.auth().currentUser?.email else { abort() }
             
-            Data.storeEntry(username: "user", date: date, rating: rating, detail: "Lorem ipsum", images: images)
+            Data.storeEntry(username: user, date: date, rating: rating, detail: "Lorem ipsum", images: images)
         }
     }
 }
