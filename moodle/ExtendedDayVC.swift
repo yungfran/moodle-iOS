@@ -15,6 +15,7 @@ class ExtendedDayVC: GradientViewController, UICollectionViewDataSource, UIColle
     var selectedDate: Date?
     var entry: Entry?
     var images: [UIImage] = []
+    var selectedImage: UIImage?
     
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
@@ -93,6 +94,7 @@ class ExtendedDayVC: GradientViewController, UICollectionViewDataSource, UIColle
     //make images expandable when tapped
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        /*
         let imageView = UIImageView(image: images[indexPath.row])
         imageView.frame = self.view.frame
         imageView.backgroundColor = .white
@@ -103,22 +105,19 @@ class ExtendedDayVC: GradientViewController, UICollectionViewDataSource, UIColle
         imageView.addGestureRecognizer(tap)
 
         self.view.addSubview(imageView)
-        //imageView.alpha = 0.0
-         
-        /*
-        UIView.animate(withDuration: 0.25, delay: 0.0, options:.transitionCurlUp) { () -> Void in
-            imageView.alpha = 1.0
-        }
-        
-        
-        UIView.animate(withDuration: 2.0, animations: {
-            imageView.alpha = 1.0
-            imageView.frame.transform = CGAffineTransform(translationX: 0, y: -100)
-        })
          */
+        
+        selectedImage = images[indexPath.row]
+        self.performSegue(withIdentifier: "expandedPhotoSegue", sender: nil)
 
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let nextVC = segue.destination as? ExpandedPhotoVC {
+            nextVC.selectedPhoto = selectedImage
+        }
+    }
+    
     // Use to back from full mode
     @objc func dismissFullscreenImage(_ sender: UITapGestureRecognizer) {
         sender.view?.removeFromSuperview()

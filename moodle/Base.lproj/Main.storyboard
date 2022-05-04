@@ -323,11 +323,37 @@
                         <outlet property="detailLabel" destination="Dww-bh-yDc" id="I5V-0Y-ZP7"/>
                         <outlet property="onDateLabel" destination="rPB-j0-GW8" id="3sS-Qf-OdE"/>
                         <outlet property="ratingLabel" destination="Rf9-R3-VM0" id="eSP-Ir-jzy"/>
+                        <segue destination="rCs-wQ-Dcr" kind="show" identifier="expandedPhotoSegue" id="viN-xI-eKO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oki-3M-KJi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2425.233644859813" y="2223.7580993520519"/>
+        </scene>
+        <!--Expanded PhotoVC-->
+        <scene sceneID="zLF-yc-cg3">
+            <objects>
+                <viewController id="rCs-wQ-Dcr" customClass="ExpandedPhotoVC" customModule="moodle" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hfV-NO-EqC">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P0k-ta-jvi">
+                                <rect key="frame" x="94" y="372" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="II2-dA-eKv"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="flG-Wq-i8h"/>
+                    <connections>
+                        <outlet property="expandedImageView" destination="P0k-ta-jvi" id="S7P-uh-S0P"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="epM-4t-MH8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3207" y="2224"/>
         </scene>
         <!--Settings-->
         <scene sceneID="r4L-ca-Cdc">
