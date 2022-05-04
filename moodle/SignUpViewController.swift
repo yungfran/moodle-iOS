@@ -10,6 +10,9 @@ import FirebaseAuth
 
 class SignUpViewController: GradientViewController, UITextFieldDelegate {
     
+    @IBOutlet weak var moodleImage: UIImageView!
+    @IBOutlet weak var signUpButton: UIButton!
+    
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var errorMessage: UILabel!
@@ -31,6 +34,56 @@ class SignUpViewController: GradientViewController, UITextFieldDelegate {
                 self.passwordField.text = nil
             }
         }
+        
+        let darkModeStatus = defaults.bool(forKey: "darkMode")
+        if darkModeStatus {
+            moodleImage.image = UIImage(named: "moodleLogoWhite")
+        } else {
+            moodleImage.image = UIImage(named: "moodleLogoBlack")
+        }
+        
+        emailField.layer.borderColor = UIColor.white.cgColor
+        passwordField.layer.borderColor = UIColor.white.cgColor
+        confirmPasswordField.layer.borderColor = UIColor.white.cgColor
+        
+        emailField.backgroundColor =  UIColor(named: "textFieldColor")
+        passwordField.backgroundColor =  UIColor(named: "textFieldColor")
+        confirmPasswordField.backgroundColor = UIColor(named: "textFieldColor")
+        
+        emailField.layer.cornerRadius = emailField.frame.size.height / 2
+        //To apply border
+        emailField.layer.borderWidth = 0.25
+        
+        //To apply Shadow
+        emailField.layer.shadowOpacity = 1
+        emailField.layer.shadowRadius = 3.0
+        emailField.layer.shadowOffset = CGSize.zero // Use any CGSize
+        emailField.layer.shadowColor = UIColor.gray.cgColor
+        
+        
+        passwordField.layer.cornerRadius = passwordField.frame.size.height / 2
+        //To apply border
+        passwordField.layer.borderWidth = 0.25
+        //To apply Shadow
+        passwordField.layer.shadowOpacity = 1
+        passwordField.layer.shadowRadius = 3.0
+        passwordField.layer.shadowOffset = CGSize.zero // Use any CGSize
+        passwordField.layer.shadowColor = UIColor.gray.cgColor
+        
+        
+        confirmPasswordField.layer.cornerRadius = confirmPasswordField.frame.size.height / 2
+        //To apply border
+        confirmPasswordField.layer.borderWidth = 0.25
+        //To apply Shadow
+        confirmPasswordField.layer.shadowOpacity = 1
+        confirmPasswordField.layer.shadowRadius = 3.0
+        confirmPasswordField.layer.shadowOffset = CGSize.zero // Use any CGSize
+        confirmPasswordField.layer.shadowColor = UIColor.gray.cgColor
+        
+        signUpButton.backgroundColor = UIColor(red: 0.409, green: 0.403, blue: 1.000, alpha: 0.8)
+        signUpButton.layer.cornerRadius = signUpButton.frame.size.height / 2
+        signUpButton.layer.borderWidth = 0.25
+        signUpButton.layer.borderColor = UIColor.white.cgColor
     }
     
     @IBAction func signupButtonPressed(_ sender: Any) {
