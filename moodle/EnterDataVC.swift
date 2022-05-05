@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import FirebaseAuth
 import PhotosUI
+import SPAlert
 
 class EnterDataVC: GradientViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UITextFieldDelegate, PHPickerViewControllerDelegate {
     
@@ -63,12 +64,16 @@ class EnterDataVC: GradientViewController, UIImagePickerControllerDelegate, UINa
     
     @IBAction func pressedSubmit(_ sender: Any) {
         if Auth.auth().currentUser != nil && userMoodRating != -1 {
+            SPAlert.present(title: "Saving", preset: .spinner)
             guard let user = Auth.auth().currentUser?.email else { abort() }
              let date = Date()
             for pic in picturesToAdd {
                 print(pic.hash)
             }
-             Data.storeEntry(username: user, date: date, rating: userMoodRating, detail: userComments.text, images:picturesToAdd)
+            Data.storeEntry(username: user, date: date, rating: userMoodRating, detail: userComments.text, images: picturesToAdd)
+            SPAlert.dismiss()
+            SPAlert.present(title: "Success!", preset: .done)
+            
         }
         
         if userMoodRating == -1 {

@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import SPAlert
 
 @IBDesignable
 class DesignableUITextField: UITextField {
@@ -77,6 +78,7 @@ class LoginViewController: GradientViewController, UITextFieldDelegate {
         Auth.auth().addStateDidChangeListener() {
             auth, user in
             if user != nil {
+                SPAlert.dismiss()
                 self.performSegue(withIdentifier: "successfulLoginSegue", sender: nil)
                 self.emailField.text = nil
                 self.passwordField.text = nil
@@ -114,10 +116,13 @@ class LoginViewController: GradientViewController, UITextFieldDelegate {
     }
     
     @IBAction func loginButtonPressed(_ sender: Any) {
+        SPAlert.present(title: "Logging in", preset: .spinner)
         Auth.auth().signIn(withEmail: emailField.text!, password: passwordField.text!) {
             authResult, error in
             if let error = error as NSError? {
                 self.errorMessage.text = "\(error.localizedDescription)"
+                SPAlert.dismiss()
+                SPAlert.present(title: "Login failed", preset: .error)
             } else {
                 self.errorMessage.text = ""
             }

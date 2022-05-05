@@ -12,39 +12,85 @@ import FirebaseAuth
 
 class Data {
     
-    static func storeEntry(username: String, date: Date, rating: Int, detail: String?, images: [UIImage]?) {
+    static func storeEntrySync(username: String, date: Date, rating: Int, detail: String?, images: [UIImage]?) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
+        let alreadyExisting = retrieveData(username: username, date: date)
+        let fg = appDelegate.persistentContainer.viewContext
         
-        if let alreadyExistingEntry = retrieveData(username: username, date: date) {
-            alreadyExistingEntry.rating = Int16(rating)
-            alreadyExistingEntry.detail = detail
-            alreadyExistingEntry.images = images as NSObject?
-            
-            do {
-                try context.save()
-                print("Updated entry for user: \(username) on date \(date)")
-            } catch let error as NSError {
-                NSLog("\(error)")
-                abort()
-            }
-        } else {
-            let entry = Entry(context: context)
-            entry.username = username
-            entry.date = date
-            entry.rating = Int16(rating)
-            entry.detail = detail
-            entry.images = images as NSObject?
-            
-            do {
-                try context.save()
-                print("Created entry for user: \(username) on date \(date)")
-            } catch let error as NSError {
-                NSLog("\(error)")
-                abort()
+        fg.performAndWait {
+            if alreadyExisting != nil {
+                alreadyExisting!.rating = Int16(rating)
+                alreadyExisting!.detail = detail
+                alreadyExisting!.images = images as NSObject?
+
+                do {
+                    try fg.save()
+                    print("Updated entry for user: \(username) on date \(date)")
+                    
+                } catch let error as NSError {
+                    NSLog("\(error)")
+                    abort()
+                }
+            } else {
+                let entry = Entry(context: fg)
+                entry.username = username
+                entry.date = date
+                entry.rating = Int16(rating)
+                entry.detail = detail
+                entry.images = images as NSObject?
+
+                do {
+                    try fg.save()
+                    print("Created entry for user: \(username) on date \(date)")
+                    
+                } catch let error as NSError {
+                    NSLog("\(error)")
+                    abort()
+                }
             }
         }
         
+    }
+    
+    static func storeEntry(username: String, date: Date, rating: Int, detail: String?, images: [UIImage]?) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        let alreadyExisting = retrieveData(username: username, date: date)
+        
+        let bg = appDelegate.persistentContainer.newBackgroundContext()
+        
+        bg.perform {
+            if alreadyExisting != nil {
+                alreadyExisting!.rating = Int16(rating)
+                alreadyExisting!.detail = detail
+                alreadyExisting!.images = images as NSObject?
+
+                do {
+                    try bg.save()
+                    print("Updated entry for user: \(username) on date \(date)")
+                    
+                } catch let error as NSError {
+                    NSLog("\(error)")
+                    abort()
+                }
+            } else {
+                let entry = Entry(context: bg)
+                entry.username = username
+                entry.date = date
+                entry.rating = Int16(rating)
+                entry.detail = detail
+                entry.images = images as NSObject?
+
+                do {
+                    try bg.save()
+                    print("Created entry for user: \(username) on date \(date)")
+                    
+                } catch let error as NSError {
+                    NSLog("\(error)")
+                    abort()
+                }
+            }
+        }
     }
     
     static func retrieveData(username: String) -> [Entry] {
@@ -186,6 +232,7 @@ class Mock {
             NSLog("Error deleting all entries: \(error)")
             abort()
         }
+        context.reset()
     }
     
     static func generateData() {
@@ -202,7 +249,7 @@ class Mock {
             images.append(UIColor.blue.image(CGSize(width: 200, height: 200)))
             guard let user = Auth.auth().currentUser?.email else { abort() }
             
-            Data.storeEntry(username: user, date: date, rating: rating, detail: "Lorem ipsum", images: images)
+            Data.storeEntrySync(username: user, date: date, rating: rating, detail: "Lorem ipsum", images: images)
         }
     }
 }

@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import SPAlert
 
 class SignUpViewController: GradientViewController, UITextFieldDelegate {
     
@@ -29,6 +30,7 @@ class SignUpViewController: GradientViewController, UITextFieldDelegate {
         Auth.auth().addStateDidChangeListener() {
             auth, user in
             if user != nil {
+                SPAlert.dismiss()
                 self.performSegue(withIdentifier: "successfulSignupSegue", sender: nil)
                 self.emailField.text = nil
                 self.passwordField.text = nil
@@ -88,10 +90,13 @@ class SignUpViewController: GradientViewController, UITextFieldDelegate {
     
     @IBAction func signupButtonPressed(_ sender: Any) {
         if confirmPasswordField.text! == passwordField.text!{
+            SPAlert.present(title: "Signing up", preset: .spinner)
             Auth.auth().createUser(withEmail: emailField.text!, password: passwordField.text!) {
                         authResult, error in
                         if let error = error as NSError? {
                             self.errorMessage.text = "\(error.localizedDescription)"
+                            SPAlert.dismiss()
+                            SPAlert.present(title: "Sign up failed", preset: .error)
                         } else {
                             self.errorMessage.text = ""
                         }

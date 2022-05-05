@@ -13,6 +13,7 @@
 		0414802527D2CFC200CA9FCC /* moodle.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0414802327D2CFC200CA9FCC /* moodle.xcdatamodeld */; };
 		0414802727D2CFC300CA9FCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0414802627D2CFC300CA9FCC /* Assets.xcassets */; };
 		0414802A27D2CFC300CA9FCC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0414802827D2CFC300CA9FCC /* LaunchScreen.storyboard */; };
+		041EEE612821CCC80003C2C8 /* SPAlert in Frameworks */ = {isa = PBXBuildFile; productRef = 041EEE602821CCC80003C2C8 /* SPAlert */; };
 		042CCA9A27E4C39700C24427 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042CCA9927E4C39700C24427 /* Data.swift */; };
 		044130CE27E8231A00768DBA /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 044130CD27E8231A00768DBA /* FSCalendar */; };
 		0462C28027EABA9700CD1F06 /* readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0462C27F27EABA9700CD1F06 /* readme.txt */; };
@@ -82,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				041EEE612821CCC80003C2C8 /* SPAlert in Frameworks */,
 				159CD0E927D2DA9A00DCEC19 /* FirebaseMessaging in Frameworks */,
 				044130CE27E8231A00768DBA /* FSCalendar in Frameworks */,
 				159CD0DD27D2DA9A00DCEC19 /* FirebaseDatabase in Frameworks */,
@@ -180,6 +182,7 @@
 				159CD0EC27D2DA9A00DCEC19 /* FirebaseStorageSwift-Beta */,
 				04651F1827E5847900360140 /* Charts */,
 				044130CD27E8231A00768DBA /* FSCalendar */,
+				041EEE602821CCC80003C2C8 /* SPAlert */,
 			);
 			productName = moodle;
 			productReference = 0414801727D2CFC200CA9FCC /* moodle.app */;
@@ -213,6 +216,7 @@
 				159CD0D727D2DA9A00DCEC19 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				04651F1727E5847800360140 /* XCRemoteSwiftPackageReference "Charts" */,
 				044130CC27E8231A00768DBA /* XCRemoteSwiftPackageReference "FSCalendar" */,
+				041EEE5F2821CCC80003C2C8 /* XCRemoteSwiftPackageReference "SPAlert" */,
 			);
 			productRefGroup = 0414801827D2CFC200CA9FCC /* Products */;
 			projectDirPath = "";
@@ -484,6 +488,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		041EEE5F2821CCC80003C2C8 /* XCRemoteSwiftPackageReference "SPAlert" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ivanvorobei/SPAlert";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 		044130CC27E8231A00768DBA /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/WenchaoD/FSCalendar";
@@ -511,6 +523,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		041EEE602821CCC80003C2C8 /* SPAlert */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 041EEE5F2821CCC80003C2C8 /* XCRemoteSwiftPackageReference "SPAlert" */;
+			productName = SPAlert;
+		};
 		044130CD27E8231A00768DBA /* FSCalendar */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 044130CC27E8231A00768DBA /* XCRemoteSwiftPackageReference "FSCalendar" */;

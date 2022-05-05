@@ -119,6 +119,15 @@
         }
       },
       {
+        "package": "SPAlert",
+        "repositoryURL": "https://github.com/ivanvorobei/SPAlert",
+        "state": {
+          "branch": null,
+          "revision": "5fd3e2923d26f0f0b40f0e6c10fca458a61a73c4",
+          "version": "4.2.0"
+        }
+      },
+      {
         "package": "SwiftProtobuf",
         "repositoryURL": "https://github.com/apple/swift-protobuf.git",
         "state": {

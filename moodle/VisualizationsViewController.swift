@@ -7,6 +7,7 @@
 
 import UIKit
 import Charts
+import SPAlert
 import FirebaseAuth
 
 class ChartXAxisFormatter {
@@ -46,8 +47,10 @@ class VisualizationsViewController: GradientViewController {
 
         // Do any additional setup after loading the view.
         let entries = generateForInterval(byAdding: .day, value: -7)
-        generateLineChart(entries: entries)
-        generatePieChart(entries: entries)
+        if entries.count > 0 {
+            generateLineChart(entries: entries)
+            generatePieChart(entries: entries)
+        }
     }
     
     func generateLineChart(entries raw: [Entry]) {
@@ -143,17 +146,23 @@ class VisualizationsViewController: GradientViewController {
     @IBAction func refreshPressed(_ sender: Any) {
         let entries = generateForInterval(byAdding: .day, value: -7)
         intervalSegmentedControl.selectedSegmentIndex = 0
-        generateLineChart(entries: entries)
-        generatePieChart(entries: entries)
+        if entries.count > 0 {
+            generateLineChart(entries: entries)
+            generatePieChart(entries: entries)
+        }
     }
     
     @IBAction func generateDataPressed(_ sender: Any) {
+        SPAlert.present(title: "Generating", preset: .spinner)
         Mock.clearData()
         Mock.generateData()
+        SPAlert.dismiss()
         let entries = generateForInterval(byAdding: .day, value: -7)
         intervalSegmentedControl.selectedSegmentIndex = 0
-        generateLineChart(entries: entries)
-        generatePieChart(entries: entries)
+        if entries.count > 0 {
+            generateLineChart(entries: entries)
+            generatePieChart(entries: entries)
+        }
     }
     
     private func generateForInterval(byAdding component: Calendar.Component, value: Int) -> [Entry]{
@@ -162,7 +171,10 @@ class VisualizationsViewController: GradientViewController {
         let prev = calendar.date(byAdding: component, value: value, to: cur)
         guard let user = Auth.auth().currentUser?.email else { abort() }
         
-        let entries = Data.retrieveData(username: user, beginning: prev!, end: cur)
+        var entries = Data.retrieveData(username: user, beginning: prev!, end: cur)
+        entries = entries.sorted {
+            $0.date! < $1.date!
+        }
         return entries
     }
     
@@ -190,7 +202,9 @@ class VisualizationsViewController: GradientViewController {
         default:
             abort()
         }
-        generateLineChart(entries: entries)
-        generatePieChart(entries: entries)
+        if entries.count > 0 {
+            generateLineChart(entries: entries)
+            generatePieChart(entries: entries)
+        }
     }
 }
