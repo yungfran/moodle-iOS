@@ -12,6 +12,7 @@ import UserNotifications
 class SettingsViewController: GradientViewController {
     @IBOutlet weak var darkModeToggle: UISwitch!
     @IBOutlet weak var notificationsToggle: UISwitch!
+    @IBOutlet weak var signOutButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +23,7 @@ class SettingsViewController: GradientViewController {
         
         darkModeToggle.setOn(UserDefaults.standard.bool(forKey: "darkMode"), animated: true)
         notificationsToggle.setOn(UserDefaults.standard.bool(forKey: "notificationsOn"), animated: true)
+        signOutButton.titleLabel?.font = UIFont(name: "ChalkboardSE-Regular", size: 17)
     }
     
     @IBAction func darkModeToggleChanged(_ sender: Any) {

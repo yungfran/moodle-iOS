@@ -56,6 +56,7 @@ class DesignableUITextField: UITextField {
 class LoginViewController: GradientViewController, UITextFieldDelegate {
 
     @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var signUpButton: UIButton!
     
     @IBOutlet weak var moodleImage: UIImageView!
     @IBOutlet weak var passwordField: UITextField!
@@ -111,8 +112,9 @@ class LoginViewController: GradientViewController, UITextFieldDelegate {
         loginButton.layer.cornerRadius = loginButton.frame.size.height / 2
         loginButton.layer.borderWidth = 0.25
         loginButton.layer.borderColor = UIColor.white.cgColor
-        
-        
+        loginButton.titleLabel?.font = UIFont(name: "ChalkboardSE-Regular", size: 17)
+
+        signUpButton.titleLabel?.font = UIFont(name: "ChalkboardSE-Regular", size: 17)
     }
     
     @IBAction func loginButtonPressed(_ sender: Any) {

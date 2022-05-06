@@ -41,6 +41,7 @@ class VisualizationsViewController: GradientViewController {
     @IBOutlet weak var lineChart: LineChartView!
     @IBOutlet weak var pieChart: PieChartView!
     @IBOutlet weak var intervalSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var genDataButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +52,7 @@ class VisualizationsViewController: GradientViewController {
             generateLineChart(entries: entries)
             generatePieChart(entries: entries)
         }
+        genDataButton.titleLabel?.font = UIFont(name: "ChalkboardSE-Regular", size: 17)
     }
     
     func generateLineChart(entries raw: [Entry]) {

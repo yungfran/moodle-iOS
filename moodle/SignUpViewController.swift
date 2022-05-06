@@ -86,6 +86,8 @@ class SignUpViewController: GradientViewController, UITextFieldDelegate {
         signUpButton.layer.cornerRadius = signUpButton.frame.size.height / 2
         signUpButton.layer.borderWidth = 0.25
         signUpButton.layer.borderColor = UIColor.white.cgColor
+        signUpButton.titleLabel?.font = UIFont(name: "ChalkboardSE-Regular", size: 17)
+
     }
     
     @IBAction func signupButtonPressed(_ sender: Any) {

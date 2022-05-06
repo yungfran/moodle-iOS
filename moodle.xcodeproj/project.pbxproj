@@ -46,6 +46,7 @@
 		4065B41A27DDBA00002C4639 /* ExtendedDayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065B41927DDBA00002C4639 /* ExtendedDayVC.swift */; };
 		408A348427F8F29B00918A59 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408A348327F8F29B00918A59 /* ImageCollectionViewCell.swift */; };
 		40B3B4CF27E6CABC0014BC3A /* MoodleColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B3B4CE27E6CABC0014BC3A /* MoodleColors.swift */; };
+		40EEC5542824BB600090EAF2 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EEC5532824BB600090EAF2 /* Font.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +77,7 @@
 		4065B41927DDBA00002C4639 /* ExtendedDayVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtendedDayVC.swift; sourceTree = "<group>"; };
 		408A348327F8F29B00918A59 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		40B3B4CE27E6CABC0014BC3A /* MoodleColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodleColors.swift; sourceTree = "<group>"; };
+		40EEC5532824BB600090EAF2 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +146,7 @@
 				1588611627E7D922005E1AD6 /* EnterDataVC.swift */,
 				1514B50528022D570052CE22 /* MoodScoreCollectionCell.swift */,
 				042CCA9927E4C39700C24427 /* Data.swift */,
+				40EEC5532824BB600090EAF2 /* Font.swift */,
 				15DA1F27280622AF000E58EF /* PulseAnimation.swift */,
 				0484073D27F67967009C1E5C /* GradientViewController.swift */,
 				1504D3742816654800753F0E /* moodleLogoWhite.png */,
@@ -264,6 +267,7 @@
 				15DA1F28280622B0000E58EF /* PulseAnimation.swift in Sources */,
 				0484073E27F67968009C1E5C /* GradientViewController.swift in Sources */,
 				04651F1527E583A500360140 /* VisualizationsViewController.swift in Sources */,
+				40EEC5542824BB600090EAF2 /* Font.swift in Sources */,
 				04A24AAD27E80E4E0051CE38 /* LoginViewController.swift in Sources */,
 				40B3B4CF27E6CABC0014BC3A /* MoodleColors.swift in Sources */,
 				400C865F2820F5750006BD1B /* ExpandedPhotoVC.swift in Sources */,

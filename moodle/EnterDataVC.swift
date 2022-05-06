@@ -24,6 +24,7 @@ class EnterDataVC: GradientViewController, UIImagePickerControllerDelegate, UINa
     @IBOutlet weak var questionButton: UIButton!
     @IBOutlet weak var addMoreInfoButton: UIButton!
     @IBOutlet weak var enterMoodLabelTopAnchor: NSLayoutConstraint!
+    @IBOutlet weak var submitButton: UIButton!
     
     /* Expanded View Items */
     @IBOutlet weak var userComments: UITextField!
@@ -49,6 +50,7 @@ class EnterDataVC: GradientViewController, UIImagePickerControllerDelegate, UINa
     override func viewWillAppear(_ animated: Bool) {
         print("here")
         datePicker.maximumDate = Date()
+        submitButton.titleLabel?.font = UIFont(name: "ChalkboardSE-Regular", size: 17)
         picturesToAdd = []
         super.viewWillAppear(animated)
         expandedView(hidden:true) // Everytime the view appears, hide all the expanded stuff
