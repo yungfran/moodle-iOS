@@ -7,6 +7,8 @@
 
 import UIKit
 
+// changes default font to ChalkboardSE
+
 struct AppFontName {
     static let regular = "ChalkboardSE-Regular"
     static let bold = "ChalkboardSE-Bold"

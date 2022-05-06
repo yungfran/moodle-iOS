@@ -790,19 +790,19 @@
     </scenes>
     <designables>
         <designable name="8Dt-we-uxs">
-            <size key="intrinsicContentSize" width="70" height="21"/>
+            <size key="intrinsicContentSize" width="98" height="21"/>
         </designable>
         <designable name="9Ke-Vu-jFB">
-            <size key="intrinsicContentSize" width="91.333333333333329" height="18.666666666666668"/>
+            <size key="intrinsicContentSize" width="123.33333333333333" height="18.666666666666668"/>
         </designable>
         <designable name="M2q-0m-DGL">
-            <size key="intrinsicContentSize" width="102.33333333333333" height="21"/>
+            <size key="intrinsicContentSize" width="127.33333333333333" height="21"/>
         </designable>
         <designable name="ZNo-W5-wGL">
-            <size key="intrinsicContentSize" width="117.66666666666667" height="18.666666666666668"/>
+            <size key="intrinsicContentSize" width="146" height="18.666666666666668"/>
         </designable>
         <designable name="Zca-VG-e2h">
-            <size key="intrinsicContentSize" width="62.333333333333336" height="18.666666666666668"/>
+            <size key="intrinsicContentSize" width="90.333333333333329" height="18.666666666666668"/>
         </designable>
     </designables>
     <inferredMetricsTieBreakers>

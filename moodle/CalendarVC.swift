@@ -20,20 +20,13 @@ class CalendarVC: GradientViewController, FSCalendarDelegate, FSCalendarDataSour
         formatter.timeZone = NSTimeZone.local
         return formatter
     }()
-    
-    fileprivate lazy var dateFormatter2: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        return formatter
-    }()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         calendar.delegate = self
         calendar.dataSource = self
         calendar.placeholderType = .none
-        // for create mock data
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,6 +47,7 @@ class CalendarVC: GradientViewController, FSCalendarDelegate, FSCalendarDataSour
     }
     
     // set fill/background color of each day
+    // if there is no entry/log, it is grey
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, fillDefaultColorFor date: Date) -> UIColor? {
         if let color = getDateColor(givenDate: date) {
             return color
@@ -62,8 +56,8 @@ class CalendarVC: GradientViewController, FSCalendarDelegate, FSCalendarDataSour
         }
     }
     
+    // get a color by the date's rating
     func getDateColor(givenDate: Date) -> UIColor? {
-        
         guard let user = Auth.auth().currentUser?.email else { abort() }
         let entry = Data.retrieveData(username: user, date: givenDate)
         if let entryRating = entry?.rating{
@@ -93,6 +87,7 @@ class CalendarVC: GradientViewController, FSCalendarDelegate, FSCalendarDataSour
         }
     }
      
+    // sends date selected to ExtendedDayVC
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let nextVC = segue.destination as? ExtendedDayVC {
             nextVC.selectedDate = calendar.selectedDate

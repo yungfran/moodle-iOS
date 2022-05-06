@@ -56,7 +56,7 @@ class ExtendedDayVC: GradientViewController, UICollectionViewDataSource, UIColle
         detailLabel.layer.cornerRadius = 8
     }
     
-    //draws the circle with the mood color as the background
+    // draws the circle with the mood color as the background
     // has a label with rating on top
     func getCircle(){
         let circleLayer = CAShapeLayer();
@@ -95,23 +95,8 @@ class ExtendedDayVC: GradientViewController, UICollectionViewDataSource, UIColle
     
     //make images expandable when tapped
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        /*
-        let imageView = UIImageView(image: images[indexPath.row])
-        imageView.frame = self.view.frame
-        imageView.backgroundColor = .white
-        imageView.contentMode = .scaleAspectFit
-        imageView.isUserInteractionEnabled = true
-
-        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
-        imageView.addGestureRecognizer(tap)
-
-        self.view.addSubview(imageView)
-         */
-        
         selectedImage = images[indexPath.row]
         self.performSegue(withIdentifier: "expandedPhotoSegue", sender: nil)
-
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

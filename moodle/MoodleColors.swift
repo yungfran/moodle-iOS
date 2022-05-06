@@ -7,6 +7,8 @@
 
 import UIKit
 
+// class to retrieve color by ratings
+
 class MoodleColors {
     
     class var rating1: UIColor {
@@ -49,6 +51,7 @@ class MoodleColors {
         return UIColorFromRGB(0x81FF8D)
     }
     
+    // puts rating colors into array
     static var moodleColorsList = [rating1, rating2, rating3, rating4, rating5, rating6, rating7, rating8, rating9, rating10]
 
 }
