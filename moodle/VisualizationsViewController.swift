@@ -57,6 +57,7 @@ class VisualizationsViewController: GradientViewController {
     
     func generateLineChart(entries raw: [Entry]) {
         
+        // find scaling for minimum amount of time
         var referenceTimeInterval: TimeInterval = 0
         if let minTimeInterval = (raw.map {
             $0.date!.timeIntervalSince1970
@@ -69,9 +70,7 @@ class VisualizationsViewController: GradientViewController {
         formatter.timeStyle = .none
         formatter.locale = Locale.current
         
-        
         var entries: [ChartDataEntry] = []
-        
         for entry in raw {
             let date = entry.date!
             let timeInterval = date.timeIntervalSince1970
@@ -82,6 +81,7 @@ class VisualizationsViewController: GradientViewController {
             entries.append(entry)
         }
         
+        // UI setting
         let set = LineChartDataSet(entries: entries, label: "mood")
         set.drawCirclesEnabled = false
         set.drawValuesEnabled = false
@@ -90,6 +90,7 @@ class VisualizationsViewController: GradientViewController {
         set.drawFilledEnabled = true
         let data = LineChartData(dataSet: set)
         
+        // draw x axis formation
         lineChart.data = data
         let xAxis = lineChart.xAxis
         xAxis.labelCount = 4
@@ -116,6 +117,7 @@ class VisualizationsViewController: GradientViewController {
         }
         let palette = MoodleColors.moodleColorsList
         
+        // generate entries
         var setColors: [UIColor] = []
         for i in 1...10 {
             if counter[i] != 0 {
@@ -125,6 +127,7 @@ class VisualizationsViewController: GradientViewController {
             }
         }
         
+        // set up pie chart
         let set = PieChartDataSet(entries)
         set.colors = setColors
         set.label = nil

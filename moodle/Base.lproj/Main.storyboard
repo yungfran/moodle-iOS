@@ -625,7 +625,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DrJ-eK-C0u">
-                                <rect key="frame" x="52" y="365.66666666666669" width="347" height="128"/>
+                                <rect key="frame" x="52" y="355.66666666666669" width="347" height="144"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="EcE-s4-Imi">
                                     <size key="itemSize" width="75" height="75"/>
@@ -635,7 +635,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="moodCell" id="SRz-AB-MxN" customClass="MoodScoreCollectionCell" customModule="moodle" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="26.666666666666668" width="75" height="75"/>
+                                        <rect key="frame" x="0.0" y="34.666666666666664" width="75" height="75"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Ye5-9d-HVK">
                                             <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
@@ -717,7 +717,7 @@
                         <viewLayoutGuide key="safeArea" id="qZi-g1-dvU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="78C-Pp-F82" firstAttribute="top" secondItem="DrJ-eK-C0u" secondAttribute="bottom" constant="38" id="0VB-Ka-8zq"/>
+                            <constraint firstItem="78C-Pp-F82" firstAttribute="top" secondItem="DrJ-eK-C0u" secondAttribute="bottom" constant="32" id="0VB-Ka-8zq"/>
                             <constraint firstAttribute="bottom" secondItem="78C-Pp-F82" secondAttribute="bottom" constant="353.00000000000011" id="1XQ-2p-KFf"/>
                             <constraint firstItem="qZi-g1-dvU" firstAttribute="trailing" secondItem="78C-Pp-F82" secondAttribute="trailing" constant="121" id="2HH-ha-knb"/>
                             <constraint firstItem="qZi-g1-dvU" firstAttribute="bottom" secondItem="zO5-0g-bqp" secondAttribute="bottom" constant="127" id="4gT-e9-38O"/>
@@ -745,7 +745,7 @@
                             <constraint firstItem="4Dm-uh-aCH" firstAttribute="leading" secondItem="qZi-g1-dvU" secondAttribute="leading" constant="159" id="jld-JR-wtb"/>
                             <constraint firstItem="qZi-g1-dvU" firstAttribute="trailing" secondItem="slm-Ba-to2" secondAttribute="trailing" constant="43" id="ki1-M5-ypg"/>
                             <constraint firstItem="qZi-g1-dvU" firstAttribute="bottom" secondItem="4Dm-uh-aCH" secondAttribute="bottom" constant="78" id="wK4-OB-RqL"/>
-                            <constraint firstItem="DrJ-eK-C0u" firstAttribute="top" secondItem="VJt-5L-EmU" secondAttribute="bottom" constant="25" id="y65-ti-WDb"/>
+                            <constraint firstItem="DrJ-eK-C0u" firstAttribute="top" secondItem="VJt-5L-EmU" secondAttribute="bottom" constant="15" id="y65-ti-WDb"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Today" image="doc" catalog="system" id="ei3-zf-yHB"/>
@@ -790,19 +790,19 @@
     </scenes>
     <designables>
         <designable name="8Dt-we-uxs">
-            <size key="intrinsicContentSize" width="98" height="21"/>
+            <size key="intrinsicContentSize" width="70" height="21"/>
         </designable>
         <designable name="9Ke-Vu-jFB">
-            <size key="intrinsicContentSize" width="123.33333333333333" height="18.666666666666668"/>
+            <size key="intrinsicContentSize" width="91.333333333333329" height="18.666666666666668"/>
         </designable>
         <designable name="M2q-0m-DGL">
-            <size key="intrinsicContentSize" width="127.33333333333333" height="21"/>
+            <size key="intrinsicContentSize" width="102.33333333333333" height="21"/>
         </designable>
         <designable name="ZNo-W5-wGL">
-            <size key="intrinsicContentSize" width="146" height="18.666666666666668"/>
+            <size key="intrinsicContentSize" width="117.66666666666667" height="18.666666666666668"/>
         </designable>
         <designable name="Zca-VG-e2h">
-            <size key="intrinsicContentSize" width="90.333333333333329" height="18.666666666666668"/>
+            <size key="intrinsicContentSize" width="62.333333333333336" height="18.666666666666668"/>
         </designable>
     </designables>
     <inferredMetricsTieBreakers>

@@ -47,6 +47,7 @@ class SettingsViewController: GradientViewController {
             
             var dt = DateComponents()
             dt.calendar = Calendar.current
+            // 5PM local time
             dt.hour = 17
             let trigger = UNCalendarNotificationTrigger(dateMatching: dt, repeats: true)
             

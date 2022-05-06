@@ -35,8 +35,6 @@ class EnterDataVC: GradientViewController, UIImagePickerControllerDelegate, UINa
     
     /* Expanded View Items */
     @IBOutlet weak var userComments: UITextField!
-//    @IBOutlet weak var attachPhotoLabel: UILabel!
-//    @IBOutlet weak var attachPhotoButton: UIButton!
     
     @IBOutlet weak var attachPhotoLabel: UIButton!
     @IBOutlet weak var photosView: UICollectionView!
@@ -63,11 +61,9 @@ class EnterDataVC: GradientViewController, UIImagePickerControllerDelegate, UINa
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print("here")
         datePicker.maximumDate = Date()
         submitButton.titleLabel?.font = UIFont(name: "ChalkboardSE-Regular", size: 17)
         picturesToAdd = []
-        photosView.reloadData()
         super.viewWillAppear(animated)
         expandedView(hidden:true) // Everytime the view appears, hide all the expanded stuff
         resetView()
@@ -87,9 +83,6 @@ class EnterDataVC: GradientViewController, UIImagePickerControllerDelegate, UINa
             SPAlert.present(title: "Saving", preset: .spinner)
             guard let user = Auth.auth().currentUser?.email else { abort() }
             let date = datePicker.date
-            for pic in picturesToAdd {
-                print(pic.hash)
-            }
             Data.storeEntry(username: user, date: date, rating: userMoodRating, detail: userComments.text, images: picturesToAdd)
             SPAlert.dismiss()
             SPAlert.present(title: "Success!", preset: .done)
@@ -150,7 +143,6 @@ class EnterDataVC: GradientViewController, UIImagePickerControllerDelegate, UINa
             picker.dismiss(animated: true, completion: nil)
             return
         }
-        
         
         picker.dismiss(animated: true, completion: nil)
         
@@ -286,9 +278,6 @@ class EnterDataVC: GradientViewController, UIImagePickerControllerDelegate, UINa
             }
         )
         
-//        cell.numberLabel.centerXAnchor.constraint(equalTo: cell.centerXAnchor).isActive = true
-        
-        //self.enterMoodLabel.removeConstraint(enterMoodLabelTopAnchor)
         UIView.animate (
             withDuration: 0.0,
             animations: {
@@ -308,24 +297,6 @@ class EnterDataVC: GradientViewController, UIImagePickerControllerDelegate, UINa
         
     }
     func fadeOutStandardView() {
-//        enterMoodLabel.alpha = 1.0
-//        questionButton.alpha = 1.0
-//        addMoreInfoButton.alpha = 1.0
-        
-//        UIView.animate (
-//            withDuration: 1.0,
-//            animations: {
-//                self.enterMoodLabel.alpha = 0.0
-//            }
-//        )
-//
-//        UIView.animate (
-//            withDuration: 1.0,
-//            animations: {
-//                self.questionButton.alpha = 0.0
-//            }
-//        )
-        
         UIView.animate (
             withDuration: 1.0,
             animations: {
@@ -339,10 +310,6 @@ class EnterDataVC: GradientViewController, UIImagePickerControllerDelegate, UINa
         userComments.alpha = 0.0
         addAdditionalInfoLabel.isHidden = hidden
         addAdditionalInfoLabel.alpha = 0.0
-//        attachPhotoLabel.isHidden = hidden
-//        attachPhotoLabel.alpha = 0.0
-//        attachPhotoButton.isHidden = hidden
-//        attachPhotoButton.alpha = 0.0
         
         photosView.isHidden = hidden
         photosView.alpha = 0.0
@@ -386,14 +353,6 @@ class EnterDataVC: GradientViewController, UIImagePickerControllerDelegate, UINa
             }
         )
         
-//
-//        UIView.animate (
-//            withDuration: 2.0,
-//            animations: {
-//                self.attachPhotoButton.alpha = 1.0
-//            }
-//        )
-        
         UIView.animate (
             withDuration: 1.0,
             animations: {
@@ -402,9 +361,6 @@ class EnterDataVC: GradientViewController, UIImagePickerControllerDelegate, UINa
             }
         )
         
-//        cell.numberLabel.centerXAnchor.constraint(equalTo: cell.centerXAnchor).isActive = true
-        
-        //self.enterMoodLabel.removeConstraint(enterMoodLabelTopAnchor)
         UIView.animate (
             withDuration: 1.0,
             animations: {

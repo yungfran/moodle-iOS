@@ -59,7 +59,7 @@ class Data {
         
         let bg = appDelegate.persistentContainer.newBackgroundContext()
         
-        bg.perform {
+        bg.performAndWait {
             if alreadyExisting != nil {
                 alreadyExisting!.rating = Int16(rating)
                 alreadyExisting!.detail = detail
