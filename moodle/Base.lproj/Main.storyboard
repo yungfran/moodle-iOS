@@ -670,6 +670,9 @@
                                     <action selector="clickQuestion:" destination="bBK-dp-LO3" eventType="touchUpInside" id="iOW-cd-gIj"/>
                                 </connections>
                             </button>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="slm-Ba-to2">
+                                <rect key="frame" x="248" y="112" width="137" height="31"/>
+                            </datePicker>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qZi-g1-dvU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -681,6 +684,7 @@
                             <constraint firstItem="qZi-g1-dvU" firstAttribute="trailing" secondItem="4Dm-uh-aCH" secondAttribute="trailing" constant="159" id="B8k-wW-SLj"/>
                             <constraint firstItem="5XX-Eu-Ok0" firstAttribute="leading" secondItem="qZi-g1-dvU" secondAttribute="leading" constant="54" id="BFB-Hl-zyD"/>
                             <constraint firstItem="qZi-g1-dvU" firstAttribute="trailing" secondItem="iRI-Ht-6CZ" secondAttribute="trailing" constant="43" id="Cv3-nD-sjE"/>
+                            <constraint firstItem="slm-Ba-to2" firstAttribute="leading" secondItem="qZi-g1-dvU" secondAttribute="leading" constant="248" id="GEa-Tv-3Hv"/>
                             <constraint firstItem="lSt-O1-dP9" firstAttribute="top" secondItem="78C-Pp-F82" secondAttribute="bottom" constant="48" id="Hkn-ZH-wXM"/>
                             <constraint firstItem="qZi-g1-dvU" firstAttribute="trailing" secondItem="5XX-Eu-Ok0" secondAttribute="trailing" constant="54" id="Kpx-YP-Kpm"/>
                             <constraint firstItem="5XX-Eu-Ok0" firstAttribute="leading" secondItem="qlg-Wd-uYL" secondAttribute="leading" id="NFp-D9-bN3"/>
@@ -688,6 +692,7 @@
                             <constraint firstItem="5XX-Eu-Ok0" firstAttribute="top" secondItem="VJt-5L-EmU" secondAttribute="bottom" constant="23.5" id="Nz4-Eq-LSJ"/>
                             <constraint firstItem="iRI-Ht-6CZ" firstAttribute="leading" secondItem="qZi-g1-dvU" secondAttribute="leading" constant="43" id="Plj-fe-P5m"/>
                             <constraint firstItem="qZi-g1-dvU" firstAttribute="trailing" secondItem="DrJ-eK-C0u" secondAttribute="trailing" constant="29" id="TLp-Kf-hgO"/>
+                            <constraint firstItem="slm-Ba-to2" firstAttribute="top" secondItem="qZi-g1-dvU" secondAttribute="top" constant="67.670000000000002" id="YMa-AI-IgL"/>
                             <constraint firstItem="DrJ-eK-C0u" firstAttribute="leading" secondItem="qZi-g1-dvU" secondAttribute="leading" constant="52" id="ZOG-H1-haa"/>
                             <constraint firstItem="lSt-O1-dP9" firstAttribute="top" secondItem="5XX-Eu-Ok0" secondAttribute="bottom" constant="27" id="a3o-kQ-JJb"/>
                             <constraint firstItem="iRI-Ht-6CZ" firstAttribute="top" secondItem="qZi-g1-dvU" secondAttribute="top" constant="141" id="dd5-gc-c5o"/>
@@ -696,6 +701,7 @@
                             <constraint firstItem="lSt-O1-dP9" firstAttribute="leading" secondItem="qZi-g1-dvU" secondAttribute="leading" constant="54" id="jYa-EZ-vTq"/>
                             <constraint firstItem="4Dm-uh-aCH" firstAttribute="leading" secondItem="qZi-g1-dvU" secondAttribute="leading" constant="159" id="jld-JR-wtb"/>
                             <constraint firstItem="5XX-Eu-Ok0" firstAttribute="leading" secondItem="lSt-O1-dP9" secondAttribute="leading" id="k6H-i1-kqJ"/>
+                            <constraint firstItem="qZi-g1-dvU" firstAttribute="trailing" secondItem="slm-Ba-to2" secondAttribute="trailing" constant="43" id="ki1-M5-ypg"/>
                             <constraint firstItem="qlg-Wd-uYL" firstAttribute="leading" secondItem="qZi-g1-dvU" secondAttribute="leading" constant="54" id="mXH-2s-P5Y"/>
                             <constraint firstItem="qlg-Wd-uYL" firstAttribute="top" secondItem="lSt-O1-dP9" secondAttribute="bottom" constant="24" id="mZA-6f-jJH"/>
                             <constraint firstItem="qZi-g1-dvU" firstAttribute="bottom" secondItem="4Dm-uh-aCH" secondAttribute="bottom" constant="78" id="wK4-OB-RqL"/>
@@ -710,6 +716,7 @@
                         <outlet property="addMoreInfoButton" destination="78C-Pp-F82" id="NkK-nZ-52X"/>
                         <outlet property="attachPhotoButton" destination="qlg-Wd-uYL" id="vsk-kX-Ctj"/>
                         <outlet property="attachPhotoLabel" destination="lSt-O1-dP9" id="fgK-bH-MtF"/>
+                        <outlet property="datePicker" destination="slm-Ba-to2" id="btW-8g-6xZ"/>
                         <outlet property="enterMoodLabel" destination="iRI-Ht-6CZ" id="pVZ-KT-Adw"/>
                         <outlet property="enterMoodLabelTopAnchor" destination="dd5-gc-c5o" id="Dhl-wm-Qkc"/>
                         <outlet property="questionButton" destination="Mn2-vz-k6y" id="Wc1-t1-Sww"/>
@@ -761,14 +768,14 @@
         <segue reference="9Kb-VD-iYI"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="arrow.clockwise" catalog="system" width="32" height="32"/>
-        <image name="calendar" catalog="system" width="32" height="32"/>
-        <image name="chart.xyaxis.line" catalog="system" width="32" height="32"/>
-        <image name="doc" catalog="system" width="32" height="32"/>
-        <image name="envelope" catalog="system" width="32" height="32"/>
-        <image name="gear" catalog="system" width="32" height="32"/>
-        <image name="lock" catalog="system" width="32" height="32"/>
-        <image name="person" catalog="system" width="32" height="32"/>
+        <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
+        <image name="calendar" catalog="system" width="128" height="106"/>
+        <image name="chart.xyaxis.line" catalog="system" width="128" height="101"/>
+        <image name="doc" catalog="system" width="115" height="128"/>
+        <image name="envelope" catalog="system" width="128" height="93"/>
+        <image name="gear" catalog="system" width="128" height="119"/>
+        <image name="lock" catalog="system" width="128" height="128"/>
+        <image name="person" catalog="system" width="128" height="117"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

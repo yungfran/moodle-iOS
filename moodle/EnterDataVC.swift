@@ -18,6 +18,7 @@ class EnterDataVC: GradientViewController, UIImagePickerControllerDelegate, UINa
     let cellIdentifier = "moodCell"
     var picturesToAdd: [UIImage] = []
     
+    @IBOutlet weak var datePicker: UIDatePicker!
     /* Standard View Items */
     @IBOutlet weak var enterMoodLabel: UITextField!
     @IBOutlet weak var questionButton: UIButton!
@@ -47,6 +48,7 @@ class EnterDataVC: GradientViewController, UIImagePickerControllerDelegate, UINa
     
     override func viewWillAppear(_ animated: Bool) {
         print("here")
+        datePicker.maximumDate = Date()
         picturesToAdd = []
         super.viewWillAppear(animated)
         expandedView(hidden:true) // Everytime the view appears, hide all the expanded stuff
@@ -66,7 +68,7 @@ class EnterDataVC: GradientViewController, UIImagePickerControllerDelegate, UINa
         if Auth.auth().currentUser != nil && userMoodRating != -1 {
             SPAlert.present(title: "Saving", preset: .spinner)
             guard let user = Auth.auth().currentUser?.email else { abort() }
-             let date = Date()
+            let date = datePicker.date
             for pic in picturesToAdd {
                 print(pic.hash)
             }
