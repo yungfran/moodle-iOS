@@ -16,7 +16,14 @@ class EnterDataVC: GradientViewController, UIImagePickerControllerDelegate, UINa
     var userMoodRating : Int = -1
     let expandedViewIdentifier = "ExpandedEntrySegue"
     let cellIdentifier = "moodCell"
-    var picturesToAdd: [UIImage] = []
+    var picturesToAdd: [UIImage] = [] {
+        didSet {
+            DispatchQueue.main.async {
+                self.photosView.reloadData()
+                self.attachPhotoLabel.setTitle("Attach photo(s): (\(self.picturesToAdd.count) currently selected)", for: .normal)
+            }
+        }
+    }
     
     @IBOutlet weak var datePicker: UIDatePicker!
     /* Standard View Items */
@@ -28,8 +35,12 @@ class EnterDataVC: GradientViewController, UIImagePickerControllerDelegate, UINa
     
     /* Expanded View Items */
     @IBOutlet weak var userComments: UITextField!
-    @IBOutlet weak var attachPhotoLabel: UILabel!
-    @IBOutlet weak var attachPhotoButton: UIButton!
+//    @IBOutlet weak var attachPhotoLabel: UILabel!
+//    @IBOutlet weak var attachPhotoButton: UIButton!
+    
+    @IBOutlet weak var attachPhotoLabel: UIButton!
+    @IBOutlet weak var photosView: UICollectionView!
+    
     @IBOutlet weak var addAdditionalInfoLabel: UILabel!
     @IBOutlet weak var sliderView: UICollectionView!     //y = 173 std, y = 372
     
@@ -40,6 +51,10 @@ class EnterDataVC: GradientViewController, UIImagePickerControllerDelegate, UINa
         sliderView.backgroundColor = UIColor.clear.withAlphaComponent(0)
         sliderView.delegate = self
         sliderView.dataSource = self
+        
+        photosView.delegate = self
+        photosView.dataSource = self
+        photosView.backgroundColor = UIColor.clear.withAlphaComponent(0)
     }
     
     override func didReceiveMemoryWarning() {
@@ -52,6 +67,7 @@ class EnterDataVC: GradientViewController, UIImagePickerControllerDelegate, UINa
         datePicker.maximumDate = Date()
         submitButton.titleLabel?.font = UIFont(name: "ChalkboardSE-Regular", size: 17)
         picturesToAdd = []
+        photosView.reloadData()
         super.viewWillAppear(animated)
         expandedView(hidden:true) // Everytime the view appears, hide all the expanded stuff
         resetView()
@@ -135,6 +151,7 @@ class EnterDataVC: GradientViewController, UIImagePickerControllerDelegate, UINa
             return
         }
         
+        
         picker.dismiss(animated: true, completion: nil)
         
         for result in results {
@@ -181,51 +198,69 @@ class EnterDataVC: GradientViewController, UIImagePickerControllerDelegate, UINa
     
     /* Start Collection View Functions */
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10 // Number of ratings
+        if collectionView == self.sliderView {
+            return 10 // Number of ratings
+        } else {
+            return picturesToAdd.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath as IndexPath) as! MoodScoreCollectionCell
-        
-        cell.numberLabel.text = String(indexPath[1] + 1)
-        cell.backgroundColor =  MoodleColors.moodleColorsList[indexPath[1]]
-        cell.layer.masksToBounds = true
-        cell.numberLabel.centerXAnchor.constraint(equalTo: cell.centerXAnchor).isActive = true
-        cell.numberLabel.centerYAnchor.constraint(equalTo: cell.centerYAnchor).isActive = true
-        return cell
+        if collectionView == self.sliderView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath as IndexPath) as! MoodScoreCollectionCell
+            
+            cell.numberLabel.text = String(indexPath[1] + 1)
+            cell.backgroundColor =  MoodleColors.moodleColorsList[indexPath[1]]
+            cell.layer.masksToBounds = true
+            cell.numberLabel.centerXAnchor.constraint(equalTo: cell.centerXAnchor).isActive = true
+            cell.numberLabel.centerYAnchor.constraint(equalTo: cell.centerYAnchor).isActive = true
+            return cell
+        } else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCell", for: indexPath as IndexPath) as! ImageCollectionViewCell
+            let currPhoto = picturesToAdd[indexPath.row]
+            cell.imageViewCell.image = currPhoto
+            return cell
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath as IndexPath) as! MoodScoreCollectionCell
-        userMoodRating = indexPath[1] + 1
-        sliderView.reloadData()
+        if collectionView == self.sliderView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath as IndexPath) as! MoodScoreCollectionCell
+            userMoodRating = indexPath[1] + 1
+            sliderView.reloadData()
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        if indexPath[1] + 1 == userMoodRating{
+        if collectionView == self.sliderView {
+            if indexPath[1] + 1 == userMoodRating{
 
-            //NSLayoutConstraint.activate(smallConstraints)
-            return CGSize(width: 100, height: 100)
+                //NSLayoutConstraint.activate(smallConstraints)
+                return CGSize(width: 100, height: 100)
+            }
+            
+           // NSLayoutConstraint.activate(smallConstraints)
+            return CGSize(width: 75, height: 75)
+        } else {
+            return CGSize(width: 50, height: 50)
         }
-        
-       // NSLayoutConstraint.activate(smallConstraints)
-        return CGSize(width: 75, height: 75)
     }
     
     /* Called when we are about to display a cell*/
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        let ourCell = cell as! MoodScoreCollectionCell
-        if indexPath[1] + 1 == userMoodRating{
-//            let trans = CGAffineTransform(translationX: 10.0, y: 10.0)
-//            ourCell.numberLabel.transform = trans
-            let screenLocPreMove = self.sliderView.convert(ourCell.frame.origin, to: self.view)
-            let screenLoc = CGPoint(x:screenLocPreMove.x + 50,y:screenLocPreMove.y + 50)
-            let pulse = PulseAnimation(numberOfPulse: 1, radius: 60, postion: screenLoc )
-            pulse.animationDuration = 0.5
-            pulse.backgroundColor =  #colorLiteral(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.5)
-            self.view.layer.insertSublayer(pulse, below: self.view.layer)
+        if collectionView == self.sliderView {
+            let ourCell = cell as! MoodScoreCollectionCell
+            if indexPath[1] + 1 == userMoodRating{
+    //            let trans = CGAffineTransform(translationX: 10.0, y: 10.0)
+    //            ourCell.numberLabel.transform = trans
+                let screenLocPreMove = self.sliderView.convert(ourCell.frame.origin, to: self.view)
+                let screenLoc = CGPoint(x:screenLocPreMove.x + 50,y:screenLocPreMove.y + 50)
+                let pulse = PulseAnimation(numberOfPulse: 1, radius: 60, postion: screenLoc )
+                pulse.animationDuration = 0.5
+                pulse.backgroundColor =  #colorLiteral(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.5)
+                self.view.layer.insertSublayer(pulse, below: self.view.layer)
+            }
         }
     }
     /* End Collection View Functions */
@@ -304,10 +339,15 @@ class EnterDataVC: GradientViewController, UIImagePickerControllerDelegate, UINa
         userComments.alpha = 0.0
         addAdditionalInfoLabel.isHidden = hidden
         addAdditionalInfoLabel.alpha = 0.0
+//        attachPhotoLabel.isHidden = hidden
+//        attachPhotoLabel.alpha = 0.0
+//        attachPhotoButton.isHidden = hidden
+//        attachPhotoButton.alpha = 0.0
+        
+        photosView.isHidden = hidden
+        photosView.alpha = 0.0
         attachPhotoLabel.isHidden = hidden
         attachPhotoLabel.alpha = 0.0
-        attachPhotoButton.isHidden = hidden
-        attachPhotoButton.alpha = 0.0
     }
     
     func standardView(hidden:Bool) {
@@ -338,12 +378,21 @@ class EnterDataVC: GradientViewController, UIImagePickerControllerDelegate, UINa
             }
         )
         
+        
         UIView.animate (
             withDuration: 2.0,
             animations: {
-                self.attachPhotoButton.alpha = 1.0
+                self.photosView.alpha = 1.0
             }
         )
+        
+//
+//        UIView.animate (
+//            withDuration: 2.0,
+//            animations: {
+//                self.attachPhotoButton.alpha = 1.0
+//            }
+//        )
         
         UIView.animate (
             withDuration: 1.0,

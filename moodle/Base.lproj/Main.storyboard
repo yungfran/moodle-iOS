@@ -583,7 +583,6 @@
                                 <rect key="frame" x="159" y="734" width="110" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="2kJ-Hx-ws9"/>
-                                    <constraint firstAttribute="width" constant="96" id="e6W-gx-CvI"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Submit">
@@ -603,22 +602,16 @@
                                     <action selector="expandDataEntry:" destination="bBK-dp-LO3" eventType="touchUpInside" id="F4c-cG-Zsm"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5XX-Eu-Ok0">
-                                <rect key="frame" x="54" y="364" width="306" height="250"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5XX-Eu-Ok0">
+                                <rect key="frame" x="54" y="364" width="320" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="YvN-Z3-HFi"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Attach a photo:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lSt-O1-dP9">
-                                <rect key="frame" x="54" y="621" width="117" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add additional information" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VJt-5L-EmU">
-                                <rect key="frame" x="104" y="265.66666666666669" width="207" height="55"/>
+                                <rect key="frame" x="104" y="285.66666666666669" width="207" height="55"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="207" id="SJY-3d-nln"/>
                                 </constraints>
@@ -631,22 +624,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qlg-Wd-uYL">
-                                <rect key="frame" x="54" y="666" width="50" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="0kw-dD-eLE"/>
-                                    <constraint firstAttribute="height" constant="50" id="Ywg-uc-rqY"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" title="+">
-                                    <fontDescription key="titleFontDescription" type="system" weight="thin" pointSize="25"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="attachPhoto:" destination="bBK-dp-LO3" eventType="touchUpInside" id="AlV-zC-Bwy"/>
-                                </connections>
-                            </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DrJ-eK-C0u">
-                                <rect key="frame" x="52" y="345.66666666666669" width="347" height="148"/>
+                                <rect key="frame" x="52" y="365.66666666666669" width="347" height="128"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="EcE-s4-Imi">
                                     <size key="itemSize" width="75" height="75"/>
@@ -656,7 +635,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="moodCell" id="SRz-AB-MxN" customClass="MoodScoreCollectionCell" customModule="moodle" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="36.666666666666664" width="75" height="75"/>
+                                        <rect key="frame" x="0.0" y="26.666666666666668" width="75" height="75"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Ye5-9d-HVK">
                                             <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
@@ -693,37 +672,78 @@
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="slm-Ba-to2">
                                 <rect key="frame" x="248" y="111.66666666666667" width="137" height="31.000000000000014"/>
                             </datePicker>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zO5-0g-bqp">
+                                <rect key="frame" x="54" y="666" width="320" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="JqJ-jm-tj2">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="imageCell" id="loU-nu-r1Z" customClass="ImageCollectionViewCell" customModule="moodle" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="gDy-c7-NEM">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jd9-1a-O86">
+                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="imageViewCell" destination="jd9-1a-O86" id="Auz-sb-QgR"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YJ2-MT-fNb">
+                                <rect key="frame" x="39" y="627" width="350" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="350" id="9XY-le-xZj"/>
+                                    <constraint firstAttribute="height" constant="31" id="gSy-Ft-bkn"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Attach photo(s): (0 currently selected)"/>
+                                <connections>
+                                    <action selector="attachPhoto:" destination="bBK-dp-LO3" eventType="touchUpInside" id="s6K-j6-bEL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qZi-g1-dvU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="78C-Pp-F82" firstAttribute="top" secondItem="DrJ-eK-C0u" secondAttribute="bottom" constant="38" id="0VB-Ka-8zq"/>
+                            <constraint firstAttribute="bottom" secondItem="78C-Pp-F82" secondAttribute="bottom" constant="353.00000000000011" id="1XQ-2p-KFf"/>
                             <constraint firstItem="qZi-g1-dvU" firstAttribute="trailing" secondItem="78C-Pp-F82" secondAttribute="trailing" constant="121" id="2HH-ha-knb"/>
-                            <constraint firstItem="qZi-g1-dvU" firstAttribute="bottom" secondItem="qlg-Wd-uYL" secondAttribute="bottom" constant="127" id="65t-dT-rOi"/>
+                            <constraint firstItem="qZi-g1-dvU" firstAttribute="bottom" secondItem="zO5-0g-bqp" secondAttribute="bottom" constant="127" id="4gT-e9-38O"/>
                             <constraint firstItem="VJt-5L-EmU" firstAttribute="leading" secondItem="qZi-g1-dvU" secondAttribute="leading" constant="104" id="6Px-jf-0bZ"/>
+                            <constraint firstItem="zO5-0g-bqp" firstAttribute="top" secondItem="YJ2-MT-fNb" secondAttribute="bottom" constant="8" symbolic="YES" id="8RG-iK-I2D"/>
+                            <constraint firstItem="YJ2-MT-fNb" firstAttribute="top" secondItem="5XX-Eu-Ok0" secondAttribute="bottom" constant="13" id="9td-9h-Zm3"/>
                             <constraint firstItem="qZi-g1-dvU" firstAttribute="trailing" secondItem="4Dm-uh-aCH" secondAttribute="trailing" constant="159" id="B8k-wW-SLj"/>
                             <constraint firstItem="5XX-Eu-Ok0" firstAttribute="leading" secondItem="qZi-g1-dvU" secondAttribute="leading" constant="54" id="BFB-Hl-zyD"/>
                             <constraint firstItem="qZi-g1-dvU" firstAttribute="trailing" secondItem="iRI-Ht-6CZ" secondAttribute="trailing" constant="43" id="Cv3-nD-sjE"/>
                             <constraint firstItem="slm-Ba-to2" firstAttribute="leading" secondItem="qZi-g1-dvU" secondAttribute="leading" constant="248" id="GEa-Tv-3Hv"/>
-                            <constraint firstItem="lSt-O1-dP9" firstAttribute="top" secondItem="78C-Pp-F82" secondAttribute="bottom" constant="48" id="Hkn-ZH-wXM"/>
+                            <constraint firstItem="zO5-0g-bqp" firstAttribute="leading" secondItem="5XX-Eu-Ok0" secondAttribute="leading" id="HiB-X3-ta3"/>
+                            <constraint firstItem="YJ2-MT-fNb" firstAttribute="top" secondItem="78C-Pp-F82" secondAttribute="bottom" constant="54.000000000000114" id="K7b-QW-rEn"/>
                             <constraint firstItem="qZi-g1-dvU" firstAttribute="trailing" secondItem="5XX-Eu-Ok0" secondAttribute="trailing" constant="54" id="Kpx-YP-Kpm"/>
-                            <constraint firstItem="5XX-Eu-Ok0" firstAttribute="leading" secondItem="qlg-Wd-uYL" secondAttribute="leading" id="NFp-D9-bN3"/>
                             <constraint firstItem="78C-Pp-F82" firstAttribute="leading" secondItem="qZi-g1-dvU" secondAttribute="leading" constant="122" id="NMM-ck-wJM"/>
                             <constraint firstItem="5XX-Eu-Ok0" firstAttribute="top" secondItem="VJt-5L-EmU" secondAttribute="bottom" constant="23.5" id="Nz4-Eq-LSJ"/>
                             <constraint firstItem="iRI-Ht-6CZ" firstAttribute="leading" secondItem="qZi-g1-dvU" secondAttribute="leading" constant="43" id="Plj-fe-P5m"/>
                             <constraint firstItem="qZi-g1-dvU" firstAttribute="trailing" secondItem="DrJ-eK-C0u" secondAttribute="trailing" constant="29" id="TLp-Kf-hgO"/>
+                            <constraint firstItem="zO5-0g-bqp" firstAttribute="trailing" secondItem="5XX-Eu-Ok0" secondAttribute="trailing" id="XUC-fI-YXp"/>
                             <constraint firstItem="slm-Ba-to2" firstAttribute="top" secondItem="qZi-g1-dvU" secondAttribute="top" constant="67.670000000000002" id="YMa-AI-IgL"/>
                             <constraint firstItem="DrJ-eK-C0u" firstAttribute="leading" secondItem="qZi-g1-dvU" secondAttribute="leading" constant="52" id="ZOG-H1-haa"/>
-                            <constraint firstItem="lSt-O1-dP9" firstAttribute="top" secondItem="5XX-Eu-Ok0" secondAttribute="bottom" constant="27" id="a3o-kQ-JJb"/>
                             <constraint firstItem="iRI-Ht-6CZ" firstAttribute="top" secondItem="qZi-g1-dvU" secondAttribute="top" constant="141" id="dd5-gc-c5o"/>
                             <constraint firstItem="Mn2-vz-k6y" firstAttribute="leading" secondItem="qZi-g1-dvU" secondAttribute="leading" constant="197" id="dkn-nU-XAb"/>
                             <constraint firstItem="Mn2-vz-k6y" firstAttribute="top" secondItem="iRI-Ht-6CZ" secondAttribute="bottom" constant="25" id="dwl-to-g4y"/>
-                            <constraint firstItem="lSt-O1-dP9" firstAttribute="leading" secondItem="qZi-g1-dvU" secondAttribute="leading" constant="54" id="jYa-EZ-vTq"/>
+                            <constraint firstItem="YJ2-MT-fNb" firstAttribute="centerX" secondItem="qZi-g1-dvU" secondAttribute="centerX" id="e8Y-6s-r5z"/>
                             <constraint firstItem="4Dm-uh-aCH" firstAttribute="leading" secondItem="qZi-g1-dvU" secondAttribute="leading" constant="159" id="jld-JR-wtb"/>
-                            <constraint firstItem="5XX-Eu-Ok0" firstAttribute="leading" secondItem="lSt-O1-dP9" secondAttribute="leading" id="k6H-i1-kqJ"/>
                             <constraint firstItem="qZi-g1-dvU" firstAttribute="trailing" secondItem="slm-Ba-to2" secondAttribute="trailing" constant="43" id="ki1-M5-ypg"/>
-                            <constraint firstItem="qlg-Wd-uYL" firstAttribute="leading" secondItem="qZi-g1-dvU" secondAttribute="leading" constant="54" id="mXH-2s-P5Y"/>
-                            <constraint firstItem="qlg-Wd-uYL" firstAttribute="top" secondItem="lSt-O1-dP9" secondAttribute="bottom" constant="24" id="mZA-6f-jJH"/>
                             <constraint firstItem="qZi-g1-dvU" firstAttribute="bottom" secondItem="4Dm-uh-aCH" secondAttribute="bottom" constant="78" id="wK4-OB-RqL"/>
                             <constraint firstItem="DrJ-eK-C0u" firstAttribute="top" secondItem="VJt-5L-EmU" secondAttribute="bottom" constant="25" id="y65-ti-WDb"/>
                         </constraints>
@@ -734,11 +754,11 @@
                         <outlet property="QuestionButton" destination="Mn2-vz-k6y" id="Pet-bB-z2I"/>
                         <outlet property="addAdditionalInfoLabel" destination="VJt-5L-EmU" id="tg1-Gx-fUI"/>
                         <outlet property="addMoreInfoButton" destination="78C-Pp-F82" id="NkK-nZ-52X"/>
-                        <outlet property="attachPhotoButton" destination="qlg-Wd-uYL" id="vsk-kX-Ctj"/>
-                        <outlet property="attachPhotoLabel" destination="lSt-O1-dP9" id="fgK-bH-MtF"/>
+                        <outlet property="attachPhotoLabel" destination="YJ2-MT-fNb" id="dNw-Rw-hc5"/>
                         <outlet property="datePicker" destination="slm-Ba-to2" id="btW-8g-6xZ"/>
                         <outlet property="enterMoodLabel" destination="iRI-Ht-6CZ" id="pVZ-KT-Adw"/>
                         <outlet property="enterMoodLabelTopAnchor" destination="dd5-gc-c5o" id="Dhl-wm-Qkc"/>
+                        <outlet property="photosView" destination="zO5-0g-bqp" id="255-Ai-tqN"/>
                         <outlet property="questionButton" destination="Mn2-vz-k6y" id="Wc1-t1-Sww"/>
                         <outlet property="sliderView" destination="DrJ-eK-C0u" id="ncn-to-w9s"/>
                         <outlet property="submitButton" destination="4Dm-uh-aCH" id="PDd-FA-l7W"/>
