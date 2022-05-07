@@ -16,7 +16,6 @@
 		041EEE612821CCC80003C2C8 /* SPAlert in Frameworks */ = {isa = PBXBuildFile; productRef = 041EEE602821CCC80003C2C8 /* SPAlert */; };
 		042CCA9A27E4C39700C24427 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042CCA9927E4C39700C24427 /* Data.swift */; };
 		044130CE27E8231A00768DBA /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 044130CD27E8231A00768DBA /* FSCalendar */; };
-		0462C28027EABA9700CD1F06 /* readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0462C27F27EABA9700CD1F06 /* readme.txt */; };
 		04651F1527E583A500360140 /* VisualizationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04651F1227E583A400360140 /* VisualizationsViewController.swift */; };
 		04651F1627E583A500360140 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04651F1327E583A500360140 /* SettingsViewController.swift */; };
 		04651F1927E5847900360140 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 04651F1827E5847900360140 /* Charts */; };
@@ -59,7 +58,6 @@
 		0414802927D2CFC300CA9FCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0414802B27D2CFC300CA9FCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		042CCA9927E4C39700C24427 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
-		0462C27F27EABA9700CD1F06 /* readme.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = readme.txt; sourceTree = "<group>"; };
 		04651F1227E583A400360140 /* VisualizationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisualizationsViewController.swift; sourceTree = "<group>"; };
 		04651F1327E583A500360140 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		0484073D27F67967009C1E5C /* GradientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientViewController.swift; sourceTree = "<group>"; };
@@ -108,7 +106,6 @@
 		0414800E27D2CFC100CA9FCC = {
 			isa = PBXGroup;
 			children = (
-				0462C27F27EABA9700CD1F06 /* readme.txt */,
 				0414801927D2CFC200CA9FCC /* moodle */,
 				0414801827D2CFC200CA9FCC /* Products */,
 			);
@@ -236,7 +233,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1504D3752816654800753F0E /* moodleLogoWhite.png in Resources */,
-				0462C28027EABA9700CD1F06 /* readme.txt in Resources */,
 				0414802A27D2CFC300CA9FCC /* LaunchScreen.storyboard in Resources */,
 				04E1021B27DAED22004E2F8F /* GoogleService-Info.plist in Resources */,
 				1504D3732815FA4D00753F0E /* moodleLogoBlack.png in Resources */,
