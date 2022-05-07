@@ -12,46 +12,6 @@ import FirebaseAuth
 
 class Data {
     
-    static func storeEntrySync(username: String, date: Date, rating: Int, detail: String?, images: [UIImage]?) {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let alreadyExisting = retrieveData(username: username, date: date)
-        let fg = appDelegate.persistentContainer.viewContext
-        
-        fg.performAndWait {
-            if alreadyExisting != nil {
-                alreadyExisting!.rating = Int16(rating)
-                alreadyExisting!.detail = detail
-                alreadyExisting!.images = images as NSObject?
-
-                do {
-                    try fg.save()
-                    print("Updated entry for user: \(username) on date \(date)")
-                    
-                } catch let error as NSError {
-                    NSLog("\(error)")
-                    abort()
-                }
-            } else {
-                let entry = Entry(context: fg)
-                entry.username = username
-                entry.date = date
-                entry.rating = Int16(rating)
-                entry.detail = detail
-                entry.images = images as NSObject?
-
-                do {
-                    try fg.save()
-                    print("Created entry for user: \(username) on date \(date)")
-                    
-                } catch let error as NSError {
-                    NSLog("\(error)")
-                    abort()
-                }
-            }
-        }
-        
-    }
-    
     static func storeEntry(username: String, date: Date, rating: Int, detail: String?, images: [UIImage]?) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
@@ -249,7 +209,7 @@ class Mock {
             images.append(UIColor.blue.image(CGSize(width: 200, height: 200)))
             guard let user = Auth.auth().currentUser?.email else { abort() }
             
-            Data.storeEntrySync(username: user, date: date, rating: rating, detail: "Lorem ipsum", images: images)
+            Data.storeEntry(username: user, date: date, rating: rating, detail: "Lorem ipsum", images: images)
         }
     }
 }
